@@ -7,6 +7,7 @@ from cm.view.baseControl import Error
 
 application = webapp.WSGIApplication([
                                                         ('/', Main),
+                                                        ('/admin/', AdminPost),
                                                         ('.*',Error)
 ], debug=True)
 

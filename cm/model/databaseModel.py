@@ -17,3 +17,8 @@ class DocComment(db.Model):
 class DocTag(db.Model):
     tag = db.StringProperty(multiline=False)
     tagcount = db.IntegerProperty(default=1)
+    
+class Profile(db.Model):
+    name = db.StringProperty()
+    about = db.TextProperty()
+    Avatar = db.BlobProperty()

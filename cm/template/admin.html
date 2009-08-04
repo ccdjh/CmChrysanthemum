@@ -1,0 +1,16 @@
+{% extends "baseAll.html" %}
+
+
+<!-- ftitle-->
+{% block title %}The current time{% endblock %}
+
+    <!-- content.from./docreceive/-->
+    <form action="/docreceive/" method="post">
+      <input type="text" name="title">Title 
+      <br>
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <br>
+      <input type="text" name="tags">Tags
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+      <a href="{{ url }}">{{ urlLinktext }}</a>

@@ -1,0 +1,29 @@
+{% extends "baseAll.html" %}
+
+
+<!-- ftitle-->
+{% block title %}The current time{% endblock %}
+
+
+<!-- content-->
+{% block content %}
+
+    <!-- content.modelDocPost -->
+    {% for mdp in modelDocPost %}
+      {% if mdp.author %}
+        <b>{{ mdp.author.nickname }}</b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ mdp.idc }}</blockquote>
+      <blockquote>{{ mdp.date }}</blockquote>
+      <blockquote><a href="/docone/{{ mdp.idc }}/">{{ mdp.title }}</a></blockquote>
+      <blockquote>{{ mdp.content|escape }}</blockquote>
+      {% for t in mdp.tags %}
+        <a href="/tag/{{ t }}/">{{  t  }}</a>
+      {% endfor %}
+    {% endfor %}
+    
+
+      
+{% endblock %}
