@@ -4,6 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 from cm.view.getControl import Main
 from cm.view.baseControl import Error
+from cm.view.htmlConrtol import AdminPost
 
 application = webapp.WSGIApplication([
                                                         ('/', Main),

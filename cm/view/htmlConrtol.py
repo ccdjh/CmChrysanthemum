@@ -6,5 +6,6 @@ from cm.view.baseControl import CcdjhMarx
 
 class AdminPost(CcdjhMarx):
   def get(self):
-    self.response.headers['Content-Type'] = 'text/plain'
-    self.response.out.write('Hello, webapp World!')
+    listNeed=self.listNeedCM()
+    template_values = {'listNeed': listNeed,}
+    self.htmlRenderCM('../template/admin.html',template_values)

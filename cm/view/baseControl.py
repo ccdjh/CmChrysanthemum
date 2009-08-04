@@ -1,18 +1,20 @@
+# -*- coding: utf-8 -*-
 import re
 import os
+
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 
 class CcdjhMarx(webapp.RequestHandler):
-    def htmlRender(self, template_file, template_value):
+    def htmlRenderCM(self, template_file, template_value):
         path = os.path.join(os.path.dirname(__file__), template_file)
         self.response.out.write(template.render(path, template_value))
-    def errorRender(self,code):
+    def errorRenderCM(self,code):
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.out.write('Hello, webapp World!40444444')
-    def navigation(self,offset,total_count,limit=10):
+    def navigationCM(self,offset,total_count,limit=10):
       if offset:
         try:
           offset = int(offset)
@@ -42,8 +44,20 @@ class CcdjhMarx(webapp.RequestHandler):
                 'next_list': next_list,
                 'last': last }
       return response
+
+    def listNeedCM(self):
+        if users.get_current_user():
+            url = users.create_logout_url(self.request.uri)
+            urlLinktext = 'Logout'
+        else:
+            url = users.create_login_url(self.request.uri)
+            urlLinktext = 'Login'
+        
+        listNeed = {'url' : url,
+                        'urlLinktext': urlLinktext }
+        return listNeed
     
 class Error(webapp.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        self.response.out.write('Hello, webapp World!404')    
+        self.response.out.write('Hello, webapp World!404')

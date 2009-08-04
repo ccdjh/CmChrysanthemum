@@ -1,4 +1,4 @@
-{% extends "baseAll.html" %}
+{% extends "base.html" %}
 
 
 <!-- ftitle-->
@@ -24,6 +24,6 @@
       {% endfor %}
     {% endfor %}
     
-
-      
+    <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+    <h3><a href="/admin/">admin</a></h3>  
 {% endblock %}

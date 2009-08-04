@@ -1,9 +1,10 @@
-{% extends "baseAll.html" %}
+{% extends "base.html" %}
 
 
 <!-- ftitle-->
 {% block title %}The current time{% endblock %}
-
+  
+    {% block content %}
     <!-- content.from./docreceive/-->
     <form action="/docreceive/" method="post">
       <input type="text" name="title">Title 
@@ -13,4 +14,5 @@
       <input type="text" name="tags">Tags
       <div><input type="submit" value="Sign Guestbook"></div>
     </form>
-      <a href="{{ url }}">{{ urlLinktext }}</a>
+      <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+    {% endblock %} 
