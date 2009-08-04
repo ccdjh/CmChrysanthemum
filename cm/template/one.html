@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+<!-- ftitle-->
+{% block title %}
+    {% for mdo in modelDocOne %}{{ mdo.title }}{% endfor %}
+{% endblock %}
+
+
+<!-- content -->
+{% block content %}
+        {% for mdo in modelDocOne %}
+        <blockquote>{{ mdo.idc }}</blockquote>
+        <blockquote>{{ mdo.date }}</blockquote>
+        <blockquote>{{ mdo.title }}</blockquote>
+        <blockquote>{{ mdo.content|escape }}</blockquote>
+        <blockquote>{{ mdo.commentcount }}</blockquote>
+            {% for t in mdo.tags %}
+                <a href="/tag/{{ t }}/">{{  t  }}</a>
+            {% endfor %}
+        <form action="/comment/" method="post">
+        <div><textarea name="content" rows="3" cols="60"></textarea></div>
+        <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/>
+        <div><input type="submit" value="Comment"></div>
+        </form>
+            {% for mdoo in mdo.post_comment %}
+            <blockquote>{{ mdoo.comment }}</blockquote>
+            {% endfor %}
+        {% endfor %}
+        <a href="/">main</a>
+{% endblock %}   

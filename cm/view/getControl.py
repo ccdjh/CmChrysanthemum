@@ -12,3 +12,10 @@ class Main(CcdjhMarx):
     listNeed=self.listNeedCM()
     template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,}
     self.htmlRenderCM('../template/doc.html',template_values)
+    
+class DocOneReceive(CcdjhMarx):
+  def get(self,idc):
+    idcc=int(idc)
+    modelDocOne=DocPost.all().filter('idc =', idcc)
+    template_values = {'modelDocOne': modelDocOne,}
+    self.htmlRenderCM('../template/one.html',template_values)      

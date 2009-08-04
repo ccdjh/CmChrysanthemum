@@ -6,7 +6,7 @@
   
     {% block content %}
     <!-- content.from./docreceive/-->
-    <form action="/docreceive/" method="post">
+    <form action="/admin/docreceive/" method="post">
       <input type="text" name="title">Title 
       <br>
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
@@ -15,4 +15,5 @@
       <div><input type="submit" value="Sign Guestbook"></div>
     </form>
       <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+      <h3><a href="/">back main</a></h3>
     {% endblock %} 

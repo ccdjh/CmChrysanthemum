@@ -5,10 +5,17 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from cm.view.getControl import Main
 from cm.view.baseControl import Error
 from cm.view.htmlConrtol import AdminPost
+from cm.view.postControl import DocPostReceive
+
+from cm.view.getControl import DocOneReceive
+from cm.view.postControl import DocCommentReceive
 
 application = webapp.WSGIApplication([
-                                                        ('/', Main),
-                                                        ('/admin/', AdminPost),
+                                                        (r'/', Main),
+                                                        (r'/admin/', AdminPost),
+                                                        (r'/admin/docreceive/', DocPostReceive),
+                                                        (r'/doc/(?P<idc>[0-9]{1,9})/', DocOneReceive),
+                                                        (r'/comment/$', DocCommentReceive),
                                                         ('.*',Error)
 ], debug=True)
 

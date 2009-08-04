@@ -21,4 +21,4 @@ class DocTag(db.Model):
 class Profile(db.Model):
     name = db.StringProperty()
     about = db.TextProperty()
-    Avatar = db.BlobProperty()
+    avatar = db.BlobProperty()
