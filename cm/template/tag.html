@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+<!-- ftitle-->
+{% block title %}The current time{% endblock %}
+
+
+<!-- content-->
+{% block content %}
+    <blockquote>you are view the<b> {{ tagText }} </b>tags</blockquote>
+    {% for mdp in modelDocTag %}
+        <blockquote>{{ mdp.idc }}</blockquote>
+        <blockquote>{{ mdp.date }}</blockquote>
+        <blockquote><a href="/one/{{ mdp.idc }}/">{{ mdp.title }}</a></blockquote>
+        <blockquote>{{ mdp.content|escape }}</blockquote>
+        {% for t in mdp.tags %}
+            <a href="/tag/{{ t }}/">{{  t  }}</a>
+        {% endfor %}
+    {% endfor %}
+
+    {% if mm.previous or mm.next %}
+	<div id="nav_post">
+		{% if mm.previous %}
+		<div id="nav_prev">
+			<a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a>
+		</div>
+		{% endif %}
+
+		{% if mm.next %}	
+		<div id="nav_next">
+				<a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a>
+		</div>
+		{% endif %}	
+	</div>
+    {% endif %}
+    
+    <h1><a href="/">main</a></h1>
+{% endblock %}

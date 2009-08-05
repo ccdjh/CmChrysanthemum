@@ -12,10 +12,23 @@ class Main(CcdjhMarx):
     listNeed=self.listNeedCM()
     template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,}
     self.htmlRenderCM('../template/doc.html',template_values)
-    
+
 class DocOneReceive(CcdjhMarx):
   def get(self,idc):
     idcc=int(idc)
     modelDocOne=DocPost.all().filter('idc =', idcc)
     template_values = {'modelDocOne': modelDocOne,}
-    self.htmlRenderCM('../template/one.html',template_values)      
+    self.htmlRenderCM('../template/one.html',template_values)
+ 
+class DocTagReceive(CcdjhMarx):
+  def get(self,tagc,page=1):
+    page=int(page)
+    tagText=tagc
+    limit=2
+    m=DocPost.all().filter('tags =', tagc)
+    count=m.count()
+    mm=self.navigationCM(page,count,limit)
+    of=(mm['current']-1)*limit
+    modelDocTag=m.fetch(limit=limit, offset=of)
+    template_values = {'modelDocTag': modelDocTag,'tagText': tagText,'mm': mm,}
+    self.htmlRenderCM('../template/tag.html',template_values)    
