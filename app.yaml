@@ -3,6 +3,16 @@ version: 1
 runtime: python
 api_version: 1
 
+
+
 handlers:
-- url: .*
+
+-  url: /admin/.*
+   script: urlControl.py
+   login: admin
+
+- url: /.*
   script: urlControl.py
+
+  
+  
