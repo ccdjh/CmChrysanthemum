@@ -25,6 +25,22 @@
       {% endfor %}
     {% endfor %}
     
+    {% if mm.previous or mm.next %}
+	<div id="nav_post">
+		{% if mm.previous %}
+		<div id="nav_prev">
+			<a href="/p/{{mm.previous}}/" class="nav">Siguientes >></a>
+		</div>
+		{% endif %}
+
+		{% if mm.next %}	
+		<div id="nav_next">
+				<a href="/p/{{mm.next}}/" class="nav"><< Anteriores</a>
+		</div>
+		{% endif %}	
+	</div>
+    {% endif %}
+    
     <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
     <h3><a href="/admin/">admin</a></h3>  
 {% endblock %}

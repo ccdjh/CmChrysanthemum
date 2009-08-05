@@ -6,11 +6,16 @@ from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
 
 class Main(CcdjhMarx):
-  def get(self):
+  def get(self,page=1):
+    page=int(page)
+    limit=2
     modelDocPost_query = DocPost.all().order('-date')
-    modelDocPost = modelDocPost_query.fetch(10)
+    count=modelDocPost_query.count()
+    mm=self.navigationCM(page,count,limit)
+    of=(mm['current']-1)*limit
+    modelDocPost = modelDocPost_query.fetch(limit=limit, offset=of)
     listNeed=self.listNeedCM()
-    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,}
+    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,}
     self.htmlRenderCM('../template/doc.html',template_values)
 
 class DocOneReceive(CcdjhMarx):
