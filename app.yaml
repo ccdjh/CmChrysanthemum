@@ -7,6 +7,9 @@ api_version: 1
 
 handlers:
 
+- url: /static
+  static_dir: cm/static/css/
+
 -  url: /admin/.*
    script: urlControl.py
    login: admin
