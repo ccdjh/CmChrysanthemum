@@ -4,6 +4,7 @@ from google.appengine.ext import webapp
 
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
+from cm.model.databaseModel import DocTag
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -15,7 +16,8 @@ class Main(CcdjhMarx):
     of=(mm['current']-1)*limit
     modelDocPost = modelDocPost_query.fetch(limit=limit, offset=of)
     listNeed=self.listNeedCM()
-    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,}
+    tagList=DocTag.all()
+    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,'tagList': tagList,}
     self.htmlRenderCM('../template/doc.html',template_values)
 
 class DocOneReceive(CcdjhMarx):

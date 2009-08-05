@@ -24,6 +24,10 @@
         <a href="/tag/{{ t }}/">{{  t  }}</a>
       {% endfor %}
     {% endfor %}
+    {% for tag in tagList %}
+    <blockquote>{{ tag.tag }}({{ tag.tagcount }})</blockquote>
+    
+    {% endfor %}
     
     {% if mm.previous or mm.next %}
 	<div id="nav_post">
