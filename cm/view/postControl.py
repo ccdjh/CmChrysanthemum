@@ -10,7 +10,10 @@ from google.appengine.ext.webapp import template
 from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocComment
 from cm.model.databaseModel import DocTag
+from cm.model.databaseModel import ListYou
+
 from cm.view.baseControl import CcdjhMarx
+
 
 class DocPostReceive(CcdjhMarx):
   def post(self):
@@ -53,4 +56,12 @@ class DocCommentReceive(CcdjhMarx):
     count=DocPost.all().filter('idc = ', commentIdcc).get()
     count.commentcount += 1
     count.put()
+    self.redirect(self.request.referer)
+    
+class DocListReceive(CcdjhMarx):
+  def post(self):
+    modelListYou=ListYou()
+    modelListYou.name = self.request.get("linkname")
+    modelListYou.link = db.Link(self.request.get("link"))
+    modelListYou.put()
     self.redirect(self.request.referer)

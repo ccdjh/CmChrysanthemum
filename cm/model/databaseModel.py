@@ -22,3 +22,7 @@ class Profile(db.Model):
     name = db.StringProperty()
     about = db.TextProperty()
     avatar = db.BlobProperty()
+    
+class ListYou(db.Model):
+    name = db.StringProperty(multiline=False)
+    link = db.LinkProperty()

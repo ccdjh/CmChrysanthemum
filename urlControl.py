@@ -11,11 +11,16 @@ from cm.view.getControl import DocOneReceive
 from cm.view.postControl import DocCommentReceive
 from cm.view.getControl import DocTagReceive
 
+from cm.view.postControl import DocListReceive
+from cm.view.htmlConrtol import DocList
+
 application = webapp.WSGIApplication([
                                                         (r'/', Main),
                                                         (r'/p/(?P<page>[0-9]{1,9})/', Main),
                                                         (r'/admin/', AdminPost),
                                                         (r'/admin/docreceive/', DocPostReceive),
+                                                        (r'/admin/doclist/', DocList),
+                                                        (r'/admin/doclistreceive/', DocListReceive),
                                                         (r'/doc/(?P<idc>[0-9]{1,9})/', DocOneReceive),
                                                         (r'/comment/$', DocCommentReceive),
                                                         (r'/tag/(?P<tagc>[^/]+)/', DocTagReceive),

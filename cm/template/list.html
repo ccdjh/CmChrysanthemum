@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+<!-- ftitle-->
+{% block title %}The current time{% endblock %}
+  
+    {% block content %}
+    <!-- content.from./docreceive/-->
+    
+    <form action="/admin/doclistreceive/" method="post">
+        <input type="text" name="linkname">name
+        <br>
+        <input type="text" name="link">Link
+        <br>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+      <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+      <h3><a href="/">back main</a></h3>
+      {% for li in link %}
+      <blockquote>{{ li.name }} and {{ li.link }}</blockquote>
+      <blockquote><a href="{{ li.link }}">{{ li.name }}</a></blockquote>
+      <hr>
+      {% endfor %}
+    {% endblock %} 
