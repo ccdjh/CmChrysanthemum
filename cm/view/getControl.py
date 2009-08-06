@@ -12,6 +12,8 @@ class Main(CcdjhMarx):
     limit=2
     modelDocPost_query = DocPost.all().order('-date')
     count=modelDocPost_query.count()
+    if (page-1)*limit>count:
+      self.redirect("/error/")
     mm=self.navigationCM(page,count,limit)
     of=(mm['current']-1)*limit
     modelDocPost = modelDocPost_query.fetch(limit=limit, offset=of)
@@ -34,6 +36,8 @@ class DocTagReceive(CcdjhMarx):
     limit=2
     m=DocPost.all().filter('tags =', tagc)
     count=m.count()
+    if (page-1)*limit>count:
+      self.redirect("/error/")
     mm=self.navigationCM(page,count,limit)
     of=(mm['current']-1)*limit
     modelDocTag=m.fetch(limit=limit, offset=of)

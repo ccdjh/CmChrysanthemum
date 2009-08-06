@@ -13,13 +13,14 @@ from cm.view.getControl import DocTagReceive
 
 application = webapp.WSGIApplication([
                                                         (r'/', Main),
-                                                        (r'/p/(?P<page>[0-9]+)/', Main),
+                                                        (r'/p/(?P<page>[0-9]{1,9})/', Main),
                                                         (r'/admin/', AdminPost),
                                                         (r'/admin/docreceive/', DocPostReceive),
                                                         (r'/doc/(?P<idc>[0-9]{1,9})/', DocOneReceive),
                                                         (r'/comment/$', DocCommentReceive),
                                                         (r'/tag/(?P<tagc>[^/]+)/', DocTagReceive),
                                                         (r'/tag/(?P<tagc>[^/]+)/(?P<page>[0-9]+)/', DocTagReceive),
+                                                        (r'/error/', Error),
                                                         ('.*',Error)
 ], debug=True)
 
