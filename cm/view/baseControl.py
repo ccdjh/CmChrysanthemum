@@ -11,9 +11,6 @@ class CcdjhMarx(webapp.RequestHandler):
     def htmlRenderCM(self, template_file, template_value):
         path = os.path.join(os.path.dirname(__file__), template_file)
         self.response.out.write(template.render(path, template_value))
-    def errorRenderCM(self,code):
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.out.write('Hello, webapp World!40444444')
     def navigationCM(self,offset,total_count,limit=10):
       if offset:
         try:
