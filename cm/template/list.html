@@ -17,7 +17,7 @@
       <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
       <h3><a href="/">back main</a></h3>
       {% for li in link %}
-      <blockquote>{{ li.name }} and {{ li.link }}</blockquote>
+      <blockquote>{{ li.name }} and {{ li.link }} and {{ li.idc }}</blockquote>
       <blockquote><a href="{{ li.link }}">{{ li.name }}</a></blockquote>
       <hr>
       {% endfor %}

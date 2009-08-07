@@ -58,6 +58,9 @@ class DocCommentReceive(CcdjhMarx):
     comment.put()
     count=DocPost.all().filter('idc = ', commentIdcc).get()
     count.commentcount += 1
+    m=comment.key().id()
+    comment.idc = m
+    comment.put()
     count.put()
     self.redirect(self.request.referer)
     
@@ -66,6 +69,9 @@ class DocListReceive(CcdjhMarx):
     modelListYou=ListYou()
     modelListYou.name = self.request.get("linkname")
     modelListYou.link = db.Link(self.request.get("link"))
+    modelListYou.put()
+    m=modelListYou.key().id()
+    modelListYou.idc = m
     modelListYou.put()
     self.redirect(self.request.referer)
     

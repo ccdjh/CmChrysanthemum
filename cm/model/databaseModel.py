@@ -13,6 +13,7 @@ class DocComment(db.Model):
       contact = db.ReferenceProperty(DocPost,collection_name='post_comment')
       comment = db.TextProperty()
       date = db.DateTimeProperty(auto_now_add=True)
+      idc = db.IntegerProperty()
 
 class DocTag(db.Model):
     tag = db.StringProperty(multiline=False)
@@ -26,3 +27,4 @@ class Profile(db.Model):
 class ListYou(db.Model):
     name = db.StringProperty(multiline=False)
     link = db.LinkProperty()
+    idc = db.IntegerProperty()

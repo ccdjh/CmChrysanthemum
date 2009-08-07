@@ -26,6 +26,9 @@
         </form>
             {% for mdoo in mdo.post_comment %}
             <blockquote>{{ mdoo.comment }}</blockquote>
+            <blockquote>{{ mdoo.idc }}</blockquote>
+            <blockquote>{{ mdoo.date }}</blockquote>
+            
             {% endfor %}
         {% endfor %}
         <a href="/">main</a>
