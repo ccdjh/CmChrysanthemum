@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import re
 import os
 
@@ -76,8 +75,8 @@ class AboutReceive(CcdjhMarx):
     modelProfile.name = self.request.get("name")
     modelProfile.about = self.request.get("about")
     imgb = self.request.get("img")
-    imgc=images.Image(imgb)
-    imgd = imgc.im_feeling_lucky()
-    modelProfile.avatar = db.Blob(imgd)
+    #imgc=images.Image(imgb)
+    #imgd = imgc.im_feeling_lucky()
+    modelProfile.avatar = db.Blob(imgb)
     modelProfile.put()
     self.redirect(self.request.referer)    
