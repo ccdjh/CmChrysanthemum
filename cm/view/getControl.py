@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from google.appengine.ext import db
 from google.appengine.ext import webapp
+from google.appengine.api import images
 
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocTag
+from cm.model.databaseModel import Profile
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -42,4 +44,12 @@ class DocTagReceive(CcdjhMarx):
     of=(mm['current']-1)*limit
     modelDocTag=m.fetch(limit=limit, offset=of)
     template_values = {'modelDocTag': modelDocTag,'tagText': tagText,'mm': mm,}
-    self.htmlRenderCM('../template/tag.html',template_values)    
+    self.htmlRenderCM('../template/tag.html',template_values)
+    
+class AboutImageReceive(CcdjhMarx):
+  def get(self,idc):    
+    g =int(idc)
+    photo=Profile.get_by_id(g)
+    self.response.headers['Content-Type'] = 'image/jpeg'
+    self.response.out.write(photo.avatar)
+    

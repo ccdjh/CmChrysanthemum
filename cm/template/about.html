@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+<!-- ftitle-->
+{% block title %}The current time{% endblock %}
+  
+    {% block content %}
+    <!-- content.from./docreceive/-->
+    
+    <form action="/admin/aboutreceive/" method="post">
+        <input type="text" name="name">name
+        <br>
+        <div><input type="file" name="img"/></div>image
+        <br>
+        <div><textarea name="about" rows="3" cols="60"></textarea></div>about
+        <br>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+      <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+      <h3><a href="/">back main</a></h3>
+      {% for ab in about %}
+      <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
+      
+      <div><img src='/image/44/'></img></div>
+      
+      <hr>
+      {% endfor %}
+    {% endblock %} 

@@ -6,11 +6,15 @@ from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
+from google.appengine.api import images
 
 from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocComment
 from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import ListYou
+from cm.model.databaseModel import Profile
+
+
 
 from cm.view.baseControl import CcdjhMarx
 
@@ -65,3 +69,15 @@ class DocListReceive(CcdjhMarx):
     modelListYou.link = db.Link(self.request.get("link"))
     modelListYou.put()
     self.redirect(self.request.referer)
+    
+class AboutReceive(CcdjhMarx):
+  def post(self):
+    modelProfile=Profile()
+    modelProfile.name = self.request.get("name")
+    modelProfile.about = self.request.get("about")
+    imgb = self.request.get("img")
+    imgc=images.Image(imgb)
+    imgd = imgc.im_feeling_lucky()
+    modelProfile.avatar = db.Blob(imgd)
+    modelProfile.put()
+    self.redirect(self.request.referer)    
