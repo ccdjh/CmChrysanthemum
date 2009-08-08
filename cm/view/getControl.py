@@ -6,6 +6,7 @@ from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import Profile
+from cm.model.databaseModel import ListYou
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -26,7 +27,10 @@ class Main(CcdjhMarx):
 class DocOneReceive(CcdjhMarx):
   def get(self,idc):
     idcc=int(idc)
-    modelDocOne=DocPost.all().filter('idc =', idcc)
+    modelDocOne=DocPost.all().filter('idc = ', idcc)
+    modelDocOne.get()
+    if modelDocOne is None:
+      self.redirect("/error/")
     template_values = {'modelDocOne': modelDocOne,}
     self.htmlRenderCM('../template/one.html',template_values)
  
@@ -52,3 +56,24 @@ class AboutImageReceive(CcdjhMarx):
     self.response.headers['Content-Type'] = 'image/jpeg'
     self.response.out.write(photo.avatar)
     
+class DelListReceive(CcdjhMarx):
+  def get(self,idc):    
+    g =int(idc)
+    y=ListYou.get_by_id(g)
+    db.delete(y)
+    self.redirect(self.request.referer)
+    
+class DelDocReceive(CcdjhMarx):
+  def get(self,idc):    
+    g =int(idc)
+    y=DocPost.get_by_id(g)
+    for tt in y.tags:
+      ttt=tt
+      ttt=DocTag.all().filter('tag =', tt).get()
+      if ttt.tagcount>1:
+        ttt.tagcount=ttt.tagcount-1
+        ttt.put()
+      else:
+        db.delete(ttt)
+    db.delete(y)
+    self.redirect(self.request.referer)     

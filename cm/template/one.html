@@ -9,15 +9,19 @@
 
 <!-- content -->
 {% block content %}
-    
+        {% if modelDocOne %}
+        <blockquote>ccc</blockquote>
+        {% else %}
+        <blockquote>bbb</blockquote>
+        {% endif %}
         {% for mdo in modelDocOne %}
-        <blockquote>{{ mdo.idc }}</blockquote>
+        <blockquote>{{ mdo.idc }}</blockquote>    
         <blockquote>{{ mdo.date }}</blockquote>
         <blockquote>{{ mdo.title }}</blockquote>
         <blockquote>{{ mdo.content|escape }}</blockquote>
         <blockquote>{{ mdo.commentcount }}</blockquote>
             {% for t in mdo.tags %}
-                <a href="/tag/{{ t }}/">{{  t  }}</a>
+                <a href="/tag/{{ t|escape }}/">{{  t  }}</a>
             {% endfor %}
         <form action="/comment/" method="post">
         <div><textarea name="content" rows="3" cols="60"></textarea></div>

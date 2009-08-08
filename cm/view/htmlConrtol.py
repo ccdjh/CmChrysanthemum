@@ -5,11 +5,13 @@ from google.appengine.ext import webapp
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import ListYou
 from cm.model.databaseModel import Profile
+from cm.model.databaseModel import DocPost
 
 class AdminPost(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
-    template_values = {'listNeed': listNeed,}
+    doc=DocPost.all()
+    template_values = {'listNeed': listNeed,'doc': doc,}
     self.htmlRenderCM('../template/admin.html',template_values)
     
 class DocList(CcdjhMarx):
