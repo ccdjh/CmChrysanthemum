@@ -7,6 +7,7 @@ from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import Profile
 from cm.model.databaseModel import ListYou
+from cm.model.databaseModel import DocComment
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -76,4 +77,15 @@ class DelDocReceive(CcdjhMarx):
       else:
         db.delete(ttt)
     db.delete(y)
-    self.redirect(self.request.referer)     
+    self.redirect(self.request.referer)
+    
+class DelCommentReceive(CcdjhMarx):
+  def get(self,idc,idd):    
+    g =int(idc)
+    y=DocComment.get_by_id(g)
+    db.delete(y)
+    gg =int(idd)
+    yy=DocPost.get_by_id(gg)
+    yy.commentcount=yy.commentcount-1
+    yy.put()
+    self.redirect(self.request.referer)    

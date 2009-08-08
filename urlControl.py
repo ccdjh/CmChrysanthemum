@@ -10,6 +10,7 @@ from cm.view.getControl import DelDocReceive
 
 from cm.view.getControl import DocOneReceive
 from cm.view.postControl import DocCommentReceive
+from cm.view.getControl import DelCommentReceive
 from cm.view.getControl import DocTagReceive
 
 from cm.view.postControl import DocListReceive
@@ -34,6 +35,7 @@ application = webapp.WSGIApplication([
                                                         (r'/admin/doclistreceive/', DocListReceive),
                                                         (r'/doc/(?P<idc>[0-9]{1,9})/', DocOneReceive),
                                                         (r'/admin/deldoc/(?P<idc>[0-9]{1,9})/', DelDocReceive),
+                                                        (r'/admin/delcomment/(?P<idc>[0-9]{1,9})/(?P<idd>[0-9]{1,9})/', DelCommentReceive),
                                                         (r'/comment/$', DocCommentReceive),
                                                         (r'/tag/(?P<tagc>[^/]+)/', DocTagReceive),
                                                         (r'/tag/(?P<tagc>[^/]+)/(?P<page>[0-9]+)/', DocTagReceive),

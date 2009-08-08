@@ -6,6 +6,7 @@ from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import ListYou
 from cm.model.databaseModel import Profile
 from cm.model.databaseModel import DocPost
+from cm.model.databaseModel import DocComment
 
 class AdminPost(CcdjhMarx):
   def get(self):
@@ -18,7 +19,8 @@ class DocList(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
     link=ListYou.all()
-    template_values = {'listNeed': listNeed,'link': link,}
+    comment=DocPost.all()
+    template_values = {'listNeed': listNeed,'link': link,'comment': comment,}
     self.htmlRenderCM('../template/list.html',template_values)
     
 class About(CcdjhMarx):

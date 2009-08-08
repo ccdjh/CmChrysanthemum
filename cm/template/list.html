@@ -22,4 +22,11 @@
       <a href="/admin/deldoclist/{{ li.idc }}/">Del --- {{ li.name }}</a>
       <hr>
       {% endfor %}
+      {% for co in comment %}
+        <blockquote>{{ co.title }}</blockquote>
+        {% for mdoo in co.post_comment %}|
+            <a href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del --- {{ mdoo.comment }}</a>
+        {% endfor %}
+        <hr>
+      {% endfor %}
     {% endblock %} 
