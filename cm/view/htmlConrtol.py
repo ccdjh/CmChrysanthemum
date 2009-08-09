@@ -8,6 +8,7 @@ from cm.model.databaseModel import Profile
 from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocComment
 
+
 class AdminPost(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
