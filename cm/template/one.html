@@ -14,26 +14,33 @@
         {% else %}
         <blockquote>bbb</blockquote>
         {% endif %}
+        
         {% for mdo in modelDocOne %}
         <blockquote>{{ mdo.idc }}</blockquote>    
         <blockquote>{{ mdo.date }}</blockquote>
         <blockquote>{{ mdo.title }}</blockquote>
-        <blockquote>{{ mdo.content|escape }}</blockquote>
+        <blockquote>{{ mdo.content|linebreaks }}</blockquote>
         <blockquote>{{ mdo.commentcount }}</blockquote>
             {% for t in mdo.tags %}
                 <a href="/tag/{{ t|escape }}/">{{  t  }}</a>
             {% endfor %}
+        {% if u %}    
         <form action="/comment/" method="post">
         <div><textarea name="content" rows="3" cols="60"></textarea></div>
         <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/>
         <div><input type="submit" value="Comment"></div>
         </form>
+        <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
+        {% else %}
+        <h3>plase login you google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+        {% endif %}
             {% for mdoo in mdo.post_comment %}
-            <blockquote>{{ mdoo.comment }}</blockquote>
+            <blockquote>{{ mdoo.comment|escape }}</blockquote>
             <blockquote>{{ mdoo.idc }}</blockquote>
             <blockquote>{{ mdoo.date }}</blockquote>
             
             {% endfor %}
+            
         {% endfor %}
         <a href="/">main</a>
 {% endblock %}   

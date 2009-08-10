@@ -1,6 +1,7 @@
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import images
+from google.appengine.api import users
 
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
@@ -32,7 +33,9 @@ class DocOneReceive(CcdjhMarx):
     modelDocOne.get()
     if modelDocOne is None:
       self.redirect("/error/")
-    template_values = {'modelDocOne': modelDocOne,}
+    u=users.get_current_user()
+    listNeed=self.listNeedCM()  
+    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,}
     self.htmlRenderCM('../template/one.html',template_values)
  
 class DocTagReceive(CcdjhMarx):
