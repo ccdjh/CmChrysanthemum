@@ -29,4 +29,10 @@ class About(CcdjhMarx):
     listNeed=self.listNeedCM()
     about=Profile.all()
     template_values = {'listNeed': listNeed,'about': about,}
-    self.htmlRenderCM('../template/about.html',template_values)        
+    self.htmlRenderCM('../template/about.html',template_values)
+    
+class Feed(CcdjhMarx):
+  def get(self):
+    feed=DocPost.all().fetch(limit=2)
+    template_values = {'feed': feed,}
+    self.htmlRenderCM('../template/feed.xml',template_values)      

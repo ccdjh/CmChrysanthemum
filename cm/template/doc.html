@@ -28,7 +28,10 @@
     <blockquote>{{ tag.tag }}({{ tag.tagcount }})</blockquote>
     
     {% endfor %}
-    
+    {% for li in link %}
+      <blockquote><a href="{{ li.link }}">{{ li.name }}</a></blockquote>
+      {% endfor %}
+      
     {% if mm.previous or mm.next %}
 	<div id="nav_post">
 		{% if mm.previous %}
@@ -46,5 +49,6 @@
     {% endif %}
     
     <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-    <h3><a href="/admin/">admin</a></h3>  
+    <h3><a href="/admin/">admin</a></h3>
+    <h3><a href="/feed/">feed</a></h3> 
 {% endblock %}

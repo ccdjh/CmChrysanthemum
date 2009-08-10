@@ -23,7 +23,8 @@ class Main(CcdjhMarx):
     modelDocPost = modelDocPost_query.fetch(limit=limit, offset=of)
     listNeed=self.listNeedCM()
     tagList=DocTag.all()
-    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,'tagList': tagList,}
+    link=ListYou.all()
+    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,'tagList': tagList,'link': link,}
     self.htmlRenderCM('../template/doc.html',template_values)
 
 class DocOneReceive(CcdjhMarx):

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>	
+<rss version="2.0">
+        
+{% for f in feed %}
+    <channel>
+        <idc>{{ f.idc }}</idc>    
+        <date>{{ f.date }}</date>
+        <title>{{ f.title }}</title>
+        <content>{{ f.content }}</content>
+        <commentcount>{{ f.commentcount }}</commentcount>
+    </channel>
+{% endfor %}        
+
+</rss>
