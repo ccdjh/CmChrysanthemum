@@ -16,6 +16,7 @@ class DocComment(db.Model):
       idc = db.IntegerProperty()
       author = db.EmailProperty()
       postid = db.IntegerProperty()
+      image = db.StringProperty()
 
 class DocTag(db.Model):
     tag = db.StringProperty(multiline=False)

@@ -29,24 +29,20 @@
         <div><textarea name="content" rows="3" cols="60"></textarea></div>
         <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/>
         <div><input type="submit" value="Comment"></div>
+        <div><input type="checkbox" name="gravatar">User Gravatar</div>
         </form>
         <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
         {% else %}
         <h3>plase login you google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
         {% endif %}
             {% for mdoo in mdo.post_comment %}
-            <div><img src='/'></img></div>
+            <div><img src='{{ mdoo.image }}' alt="guest" /></div>
             <blockquote>{{ mdoo.comment|escape }}</blockquote>
             <blockquote>{{ mdoo.idc }}</blockquote>
             <blockquote>{{ mdoo.date }}</blockquote>
             <blockquote>{{ mdoo.author  }}</blockquote>
             {% endfor %}
             
-            {% for mdoo in c %}
-            <div><img src='{{ mdoo.gg }}'></img></div>
-            <blockquote>{{ mdoo.ggg|escape }}</blockquote>
-            <blockquote>{{ mdoo.date }}</blockquote>
-            {% endfor %}
             
             
         {% endfor %}
