@@ -14,6 +14,8 @@ class DocComment(db.Model):
       comment = db.TextProperty()
       date = db.DateTimeProperty(auto_now_add=True)
       idc = db.IntegerProperty()
+      author = db.EmailProperty()
+      postid = db.IntegerProperty()
 
 class DocTag(db.Model):
     tag = db.StringProperty(multiline=False)

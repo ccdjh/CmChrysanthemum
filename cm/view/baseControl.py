@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import re
 import os
+import urllib
+import hashlib
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -53,6 +55,11 @@ class CcdjhMarx(webapp.RequestHandler):
         listNeed = {'url' : url,
                         'urlLinktext': urlLinktext }
         return listNeed
+    
+    def gravatarCM(self,email,default,size=40):
+        gravatar_url = "http://www.gravatar.com/avatar.php?"
+        gravatar_url += urllib.urlencode({'gravatar_id':hashlib.md5(email).hexdigest(), 'default':default, 'size':str(size)})
+        return gravatar_url
     
 class Error(webapp.RequestHandler):
     def get(self):

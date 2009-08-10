@@ -50,13 +50,18 @@ class DocPostReceive(CcdjhMarx):
     
 class DocCommentReceive(CcdjhMarx):
   def post(self):
-    commentIdc = self.request.get("commentIdc")
-    commentIdcc=int(commentIdc)
-    q=DocPost.get_by_id(commentIdcc)
+    c = self.request.get("commentIdc")
+    cc=int(c)
+    q=DocPost.get_by_id(cc)
     comment = DocComment(contact=q)
     comment.comment = self.request.get("content")
+    comment.postid = cc
+    if users.get_current_user():
+      com= users.get_current_user()
+      comm=com.email()
+      comment.author = db.Email(comm)
     comment.put()
-    count=DocPost.all().filter('idc = ', commentIdcc).get()
+    count=DocPost.all().filter('idc = ', cc).get()
     count.commentcount += 1
     m=comment.key().id()
     comment.idc = m

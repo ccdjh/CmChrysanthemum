@@ -35,7 +35,24 @@ class DocOneReceive(CcdjhMarx):
     if modelDocOne is None:
       self.redirect("/error/")
     u=users.get_current_user()
-    listNeed=self.listNeedCM()  
+    listNeed=self.listNeedCM()
+    
+    #comment=DocComment.all().filter('postid = ', idcc)
+    #for c in comment:
+    #  email=c.author
+    #  default = "/static/homsar.jpg"
+    #  size=40
+    #  gg=self.gravatarCM(email,default,size)
+    #  ggg=c.comment
+     # date =c.date
+      #response = {'gg' : gg,
+       #         'ggg':ggg,
+       #         'date': date}
+    #default = "/static/homsar.jpg"
+    #size=40
+    #email = "yx0662@gmail.com"
+    #g=self.gravatarCM(email,default,size)
+    
     template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,}
     self.htmlRenderCM('../template/one.html',template_values)
  
