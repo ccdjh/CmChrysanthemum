@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "doc.html" %}
 
 
 <!-- ftitle-->
@@ -9,12 +9,7 @@
 
 <!-- content -->
 {% block content %}
-        {% if modelDocOne %}
-        <blockquote>ccc</blockquote>
-        {% else %}
-        <blockquote>bbb</blockquote>
-        {% endif %}
-        
+
         {% for mdo in modelDocOne %}
         <blockquote>{{ mdo.idc }}</blockquote>    
         <blockquote>{{ mdo.date }}</blockquote>
