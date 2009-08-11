@@ -9,27 +9,25 @@
 {% block content %}
     <div id="main">
         <div id="center">
-    {% for mdp in modelDocPost %}
-    <div class="doc">
-        <div class="author">
-      {% if mdp.author %}
-        <span><h2>{{ mdp.author.nickname }}</h2> wrote:</span>
-      {% else %}
-       <span>An anonymous person wrote:</span>
-      {% endif %}
-      <span>{{ mdp.idc }}</span>
-      <span>{{ mdp.date }}</span>
-      <span>{{ mdp.commentcount }}</span>
-        </div>  
-      <div class="title"><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></div>
-      <div class="content">{{ mdp.content|linebreaks }}</div>
-     <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>{% endfor %}</div> 
-    </div>  
-    {% endfor %}
+        {% for mdp in modelDocPost %}
+            <div class="doc">
+                <div class="author">
+                    {% if mdp.author %}
+                    <span><h5>{{ mdp.author.nickname }}</h5> wrote:</span>
+                    {% else %}
+                    <span>An anonymous person wrote:</span>
+                    {% endif %}
+                    <span>{{ mdp.idc }}</span>
+                    <span>{{ mdp.date }}</span>
+                    <span>{{ mdp.commentcount }}</span>
+                </div>  
+                <div class="title"><h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1></div>
+                <div class="content">{{ mdp.content|linebreaks }}</div>
+                <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>--{% endfor %}</div> 
+            </div>  
+        {% endfor %}
         </div>
-    </div>
 
-      
     {% if mm.previous or mm.next %}
 	<div id="nav_post">
 	    {% if mm.previous %}
@@ -44,22 +42,23 @@
 	    {% endif %}	
 	</div>
     {% endif %}
+    </div>
 {% endblock %}
 
 {% block sidebar %}
     <ul id="taglist">
-    {% for tag in tagList %}
-    <li>{{ tag.tag }}<span class="tagcount>({{ tag.tagcount }})</span></li>
-    {% endfor %}
+        {% for tag in tagList %}
+        <li>{{ tag.tag }}<span class="tagcount>({{ tag.tagcount }})</span></li>
+        {% endfor %}
     </ul>
     <ul id="linklist">
-    {% for li in link %}
-      <li><a href="{{ li.link }}">{{ li.name }}</a></li>
-    {% endfor %}
+        {% for li in link %}
+        <li><a href="{{ li.link }}">{{ li.name }}</a></li>
+        {% endfor %}
     </ul>
     <ul id="textall">
-    <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
-    <li><a href="/admin/">admin</a></li>
-    <li><a href="/feed/">feed</a></li>
+        <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
+        <li><a href="/admin/">admin</a></li>
+        <li><a href="/feed/">feed</a></li>
     </ul>
 {% endblock %}

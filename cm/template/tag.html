@@ -7,12 +7,13 @@
 
 <!-- content-->
 {% block content %}
-    <blockquote>you are view the<b> {{ tagText }} </b>tags</blockquote>
+    
+    <div>you are view the<b> {{ tagText }} </b>tags</div>
     {% for mdp in modelDocTag %}
-        <blockquote>{{ mdp.idc }}</blockquote>
-        <blockquote>{{ mdp.date }}</blockquote>
-        <blockquote><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></blockquote>
-        <blockquote>{{ mdp.content|escape }}</blockquote>
+        <span>{{ mdp.idc }}</span>
+        <span>{{ mdp.date }}</span>
+        <h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1>
+        <div>{{ mdp.content|escape }}</div>
         {% for t in mdp.tags %}
             <a href="/tag/{{ t }}/">{{  t  }}</a>
         {% endfor %}
