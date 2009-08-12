@@ -57,6 +57,23 @@ font-size: 12px;
 background-color: #333;
 border-top: 2px solid #666;
 }
+div#commentcount{
+    display:none;
+}
+.inputtitle{
+height: 30px;
+width: 300px;
+font-family: Tahoma, Arial, "ËÎÌו";
+font-size: 9pt;
+color: #999999;
+}
+.listtag{
+    display:none;
+}
+.content{
+    font-size: 10px;
+    width:550px;
+}
 a:link {
 color: #7A7A60;
 border-bottom: 1px dotted #7A7A60;

@@ -26,6 +26,10 @@ class Profile(db.Model):
     name = db.StringProperty()
     about = db.TextProperty()
     avatar = db.BlobProperty()
+    idc = db.IntegerProperty()
+    date = db.DateTimeProperty(auto_now_add=True)
+    title = db.StringProperty()
+    description = db.StringProperty()
     
 class ListYou(db.Model):
     name = db.StringProperty(multiline=False)

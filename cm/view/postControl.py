@@ -90,12 +90,29 @@ class DocListReceive(CcdjhMarx):
     
 class AboutReceive(CcdjhMarx):
   def post(self):
-    modelProfile=Profile()
-    modelProfile.name = self.request.get("name")
-    modelProfile.about = self.request.get("about")
-    imgb = self.request.get("img")
-    #imgc=images.Image(imgb)
-    #imgd = imgc.im_feeling_lucky()
-    modelProfile.avatar = db.Blob(imgb)
-    modelProfile.put()
+    modelProfile=Profile.all().get()
+    if modelProfile is not None:
+    #modelProfile=Profile()
+      modelProfile.name = self.request.get("name")
+      modelProfile.about = self.request.get("about")
+      modelProfile.title = self.request.get("title")
+      modelProfile.description = self.request.get("description")
+      imgb = self.request.get("img")
+      modelProfile.avatar = db.Blob(imgb)
+      modelProfile.put()
+      m=modelProfile.key().id()
+      modelProfile.idc = m
+      modelProfile.put()
+    else:
+      modelProfileb=Profile()
+      modelProfileb.name = self.request.get("name")
+      modelProfileb.about = self.request.get("about")
+      modelProfile.title = self.request.get("title")
+      modelProfile.description = self.request.get("description")
+      imgb = self.request.get("img")
+      modelProfileb.avatar = db.Blob(imgb)
+      modelProfileb.put()
+      m=modelProfileb.key().id()
+      modelProfileb.idc = m
+      modelProfileb.put()
     self.redirect(self.request.referer)    

@@ -8,6 +8,10 @@
     <!-- content.from./docreceive/-->
     
     <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
+        <input type="text" name="title">title
+        <br>
+        <input type="text" name="description">description
+        <br>
         <input type="text" name="name">name
         <br>
         <div><input type="file" name="img"/></div>image
@@ -20,9 +24,8 @@
       <h3><a href="/">back main</a></h3>
       {% for ab in about %}
       <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
-      
-      <div><img src='/image/60/'></img></div>
-      
+      <blockquote>{{ ab.title }} and {{ ab.description }}</blockquote>
+      <div><img src='/image/{{ ab.idc }}/'></img></div>
       <hr>
       {% endfor %}
     {% endblock %} 

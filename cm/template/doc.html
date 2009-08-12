@@ -1,20 +1,32 @@
 {% extends "base.html" %}
-{% block title %}The current time{% endblock %}
+{% block title %}{% for p in pro %}{{ p.title }} {% endfor %}{% endblock %}
+{% block header %}
+<div id="header"> {% for p in pro %}
+	<h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
+	<h2 id="blog_description">{{ p.description }} </h2> 
+</div>{% endfor %}
+{% endblock %}
 {% block content %}
 <div id="main">
         <div id="center">{% for mdp in modelDocPost %}
             <div class="doc">
                 <div class="title"><h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1></div>
-                <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by<a href="#">An</a>{% endif %}</span>   
-                <span>on {{ mdp.date }}</span>
+                <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
+                <span>on {{ mdp.date|date:"m-j-Y" }}</span>
                 <div class="content">{{ mdp.content|linebreaks }}</div>
-                <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>--{% endfor %}</div> 
-                <span>{{ mdp.commentcount }}</span> 
+                <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div> 
+                <div id="commentcount">{{ mdp.commentcount }}</div> 
             </div>{% endfor %}  
         </div>
 {% endblock %}
 {% block sidebar %}
     <div id="sidebar">
+        <h2 class="r">Profile</h2>
+        <ul id="taglist">{% for p in pro %}
+            <li>{{ p.name }}</li>
+            <li><img src='/image/{{ p.idc }}/'></img></li>
+            <li>{{ p.about }}</li>{% endfor %}
+        </ul>
         <h2 class="r">Tag</h2>
         <ul id="taglist">{% for tag in tagList %}
             <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
@@ -27,7 +39,7 @@
         <ul id="textall">
             <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
             <li><a href="/admin/">admin</a></li>
-            <li><a href="/feed/">feed</a></li>
+            <li><span><img src="/static/image/feed.png"></img></span><a href="/feed/">feed</a></li>
         </ul>
     </div>
 </div>     
@@ -41,5 +53,5 @@
     </div>{% endif %}
 {% endblock %}
 {% block footer %}
-<div id="footer"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>, this blog is proudly powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.</div>
+<div id="footer"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.</div>
 {% endblock %}
