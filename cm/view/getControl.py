@@ -13,7 +13,7 @@ from cm.model.databaseModel import DocComment
 class Main(CcdjhMarx):
   def get(self,page=1):
     page=int(page)
-    limit=2
+    limit=4
     modelDocPost_query = DocPost.all().order('-date')
     count=modelDocPost_query.count()
     if (page-1)*limit>count:

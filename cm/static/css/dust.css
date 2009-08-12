@@ -1,0 +1,115 @@
+body {
+background-color: #E0E0C6;
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+}
+div#header{
+background-color: #333;
+border-bottom: 2px solid #666;
+padding: 10px;
+height: 50px;
+clear: both;
+margin-bottom: 20px;
+}
+h1#blog_title {
+color: #FFF;
+margin: 5px 0px 5px 0px;
+font-size: 16px;
+}
+
+h2#blog_description {
+color: #FFF;
+margin: 5px 0px 5px 0px;
+font-size: 12px;
+font-weight: normal;
+}
+
+div#center {
+clear: both;
+}
+
+div#sidebar {
+position: absolute;
+right: 10px;
+top: 100px;
+margin-right: 20px;
+margin-bottom: 20px;
+width: 200px;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+background-color: #EFEFCF;
+padding: 10px;
+text-align: left;
+}
+
+div#main {
+margin: 0px 222px 0px 20px;
+text-align: left;
+padding: 0px 0px 20px 0px
+}
+
+div#footer {
+color: #E0E0C6;
+text-align: center;
+padding: 10px;
+font-size: 12px;
+background-color: #333;
+border-top: 2px solid #666;
+}
+a:link {
+color: #7A7A60;
+border-bottom: 1px dotted #7A7A60;
+text-decoration: none;
+}
+
+a:visited {
+color: #7A7A60;
+border-bottom: 1px dotted #7A7A60;
+text-decoration: none;
+}
+
+a:hover {
+color: #E0E0C6;
+border: none;
+background-color: #333;
+text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
+background-color: #7A7A60;
+color: #FFF;
+}
+a.w:link {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:visited {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:hover {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:active {
+background-color: #7A7A60;
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+h2.r {
+color: #999;
+font-size: 14px;
+font-weight: bold;
+font-family: "Lucida Grande", Verdana;
+margin: 0px 0px 5px 0px;
+}
+ul {list-style-type: hiragana}

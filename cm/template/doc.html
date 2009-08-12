@@ -1,64 +1,45 @@
 {% extends "base.html" %}
-
-
-<!-- ftitle-->
 {% block title %}The current time{% endblock %}
-
-
-<!-- content-->
 {% block content %}
-    <div id="main">
-        <div id="center">
-        {% for mdp in modelDocPost %}
+<div id="main">
+        <div id="center">{% for mdp in modelDocPost %}
             <div class="doc">
-                <div class="author">
-                    {% if mdp.author %}
-                    <span><h5>{{ mdp.author.nickname }}</h5> wrote:</span>
-                    {% else %}
-                    <span>An anonymous person wrote:</span>
-                    {% endif %}
-                    <span>{{ mdp.idc }}</span>
-                    <span>{{ mdp.date }}</span>
-                    <span>{{ mdp.commentcount }}</span>
-                </div>  
                 <div class="title"><h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1></div>
+                <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by<a href="#">An</a>{% endif %}</span>   
+                <span>on {{ mdp.date }}</span>
                 <div class="content">{{ mdp.content|linebreaks }}</div>
                 <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>--{% endfor %}</div> 
-            </div>  
-        {% endfor %}
+                <span>{{ mdp.commentcount }}</span> 
+            </div>{% endfor %}  
         </div>
-
-    {% if mm.previous or mm.next %}
-	<div id="nav_post">
-	    {% if mm.previous %}
-	    <div id="nav_prev">
-		<a href="/p/{{mm.previous}}/" class="nav">Siguientes >></a>
-	    </div>
-	    {% endif %}
-	    {% if mm.next %}	
-	    <div id="nav_next">
-		<a href="/p/{{mm.next}}/" class="nav"><< Anteriores</a>
-	    </div>
-	    {% endif %}	
-	</div>
-    {% endif %}
-    </div>
 {% endblock %}
-
 {% block sidebar %}
-    <ul id="taglist">
-        {% for tag in tagList %}
-        <li>{{ tag.tag }}<span class="tagcount>({{ tag.tagcount }})</span></li>
-        {% endfor %}
-    </ul>
-    <ul id="linklist">
-        {% for li in link %}
-        <li><a href="{{ li.link }}">{{ li.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <ul id="textall">
-        <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
-        <li><a href="/admin/">admin</a></li>
-        <li><a href="/feed/">feed</a></li>
-    </ul>
+    <div id="sidebar">
+        <h2 class="r">Tag</h2>
+        <ul id="taglist">{% for tag in tagList %}
+            <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
+        </ul>
+        <h2 class="r">Link</h2>
+        <ul id="linklist">{% for li in link %}
+            <li><a href="{{ li.link }}">{{ li.name }}</a></li>{% endfor %}
+        </ul>
+        <h2 class="r">All</h2>
+        <ul id="textall">
+            <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
+            <li><a href="/admin/">admin</a></li>
+            <li><a href="/feed/">feed</a></li>
+        </ul>
+    </div>
+</div>     
+{% endblock %}
+{% block docpage %}{% if mm.previous or mm.next %}
+    <div id="docpage">
+	<div id="nav_post">{% if mm.previous %}
+	    <span id="nav_prev"><a href="/p/{{mm.previous}}/" class="nav"><< Siguientes </a></span>{% endif %}{% if mm.next %}
+	    <span id="nav_next"><a href="/p/{{mm.next}}/" class="nav">Anteriores>></a></span>{% endif %}
+	</div>
+    </div>{% endif %}
+{% endblock %}
+{% block footer %}
+<div id="footer"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>, this blog is proudly powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.</div>
 {% endblock %}
