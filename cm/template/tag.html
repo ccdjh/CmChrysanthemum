@@ -3,22 +3,23 @@
 
 <!-- ftitle-->
 {% block title %}The current time{% endblock %}
-
-
-<!-- content-->
+{% block header %}
+<div id="header"> {% for p in pro %}
+	<h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
+	<h2 id="blog_description">{{ p.description }} </h2> 
+</div>{% endfor %}
+{% endblock %}
 {% block content %}
-    
-    <div>you are view the<b> {{ tagText }} </b>tags</div>
-    {% for mdp in modelDocTag %}
+ <div class="tagtitle">{% for mdp in modelDocTag %}
         <span>{{ mdp.idc }}</span>
         <span>{{ mdp.date }}</span>
         <h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1>
-        <div>{{ mdp.content|escape }}</div>
+        <div>{{ mdp.content|linebreaks }}</div>
         {% for t in mdp.tags %}
             <a href="/tag/{{ t }}/">{{  t  }}</a>
         {% endfor %}
     {% endfor %}
-
+</div>
     {% if mm.previous or mm.next %}
 	<div id="nav_post">
 		{% if mm.previous %}

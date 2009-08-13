@@ -69,8 +69,16 @@ color: #999999;
 }
 
 .content{
-    font-size: 10px;
     width:550px;
+    font-size: 13px;
+}
+.ptitle{
+    width:550px;
+    font-size: 13px;
+}
+.tagtitle{
+    width:550px;
+    font-size: 13px;
 }
 a:link {
 color: #7A7A60;

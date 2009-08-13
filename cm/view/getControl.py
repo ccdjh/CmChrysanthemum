@@ -40,7 +40,8 @@ class DocOneReceive(CcdjhMarx):
       self.redirect("/error/")
     u=users.get_current_user()
     listNeed=self.listNeedCM()
-    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,}
+    pro=Profile.all()
+    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,'pro': pro,}
     self.htmlRenderCM('../template/one.html',template_values)
  
 class DocTagReceive(CcdjhMarx):
@@ -55,7 +56,8 @@ class DocTagReceive(CcdjhMarx):
     mm=self.navigationCM(page,count,limit)
     of=(mm['current']-1)*limit
     modelDocTag=m.fetch(limit=limit, offset=of)
-    template_values = {'modelDocTag': modelDocTag,'tagText': tagText,'mm': mm,}
+    pro=Profile.all()
+    template_values = {'modelDocTag': modelDocTag,'mm': mm,'pro': pro,}
     self.htmlRenderCM('../template/tag.html',template_values)
     
 class AboutImageReceive(CcdjhMarx):

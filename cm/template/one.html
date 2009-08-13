@@ -1,27 +1,22 @@
-
 {% extends "doc.html" %}
-
-
-<!-- ftitle-->
 {% block title %}
     {% for mdo in modelDocOne %}{{ mdo.title }}{% endfor %}
 {% endblock %}
-
-
-<!-- content -->
+{% block header %}
+<div id="header"> {% for p in pro %}
+	<h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
+	<h2 id="blog_description">{{ p.description }} </h2> 
+</div>{% endfor %}
+{% endblock %}
 {% block content %}
-
-        {% for mdo in modelDocOne %}
-            <h1>{{ mdo.title }}</h1>
-            <span>{{ mdo.idc }}</pan>   
-            <span>{{ mdo.date }}</span>
+<div class="ptitle">{% for mdo in modelDocOne %}
+            <h1>{{ mdo.title }}</h1>   
+            <span>{{ mdo.date|date:"m-j-Y" }}</span>
+            <span class="author">{% if mdo.author %}  Posted by <a href="#">{{ mdo.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
             <span>{{ mdo.content|linebreaks }}</span>
-            <span>{{ mdo.commentcount }}</span>
-        
-            {% for t in mdo.tags %}
-                <a href="/tag/{{ t|escape }}/">{{  t  }}</a>
-            {% endfor %}
-            
+            <span>{{ mdo.commentcount }}</span>{% for t in mdo.tags %}
+            <a href="/tag/{{ t|escape }}/">{{  t  }}</a>{% endfor %}
+</div>
             {% if u %}    
                 <form action="/comment/" method="post">
                     <div><textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea></div>
