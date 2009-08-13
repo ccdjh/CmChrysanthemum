@@ -3,3 +3,5 @@ What is Mini interesting?
 base : google app engine
 language : python
 build : August 1 2009
+
+tool: ubuntu komodo gedit git
