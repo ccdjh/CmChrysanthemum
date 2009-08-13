@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 import re
 import os
+import codecs
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -42,9 +44,10 @@ class DocPostReceive(CcdjhMarx):
         cccc.tagcount += 1
         cccc.put()
       else:
-        ccc.tag=vvv
+        ccc.tag=db.Category(vvv)
         ccc.put()
-      modelDocPost.tags.append(vvv)
+      vvvv=db.Category(vvv)
+      modelDocPost.tags.append(vvvv)
       modelDocPost.put()
     self.redirect("/")
     
@@ -107,8 +110,8 @@ class AboutReceive(CcdjhMarx):
       modelProfileb=Profile()
       modelProfileb.name = self.request.get("name")
       modelProfileb.about = self.request.get("about")
-      modelProfile.title = self.request.get("title")
-      modelProfile.description = self.request.get("description")
+      modelProfileb.title = self.request.get("title")
+      modelProfileb.description = self.request.get("description")
       imgb = self.request.get("img")
       modelProfileb.avatar = db.Blob(imgb)
       modelProfileb.put()

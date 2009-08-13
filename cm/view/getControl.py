@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+import urllib
+
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import images
@@ -37,32 +40,15 @@ class DocOneReceive(CcdjhMarx):
       self.redirect("/error/")
     u=users.get_current_user()
     listNeed=self.listNeedCM()
-    
-    #comment=DocComment.all().filter('postid = ', idcc)
-    #for c in comment:
-    #  email=c.author
-    #  default = "/static/homsar.jpg"
-    #  size=40
-    #  gg=self.gravatarCM(email,default,size)
-    #  ggg=c.comment
-     # date =c.date
-      #response = {'gg' : gg,
-       #         'ggg':ggg,
-       #         'date': date}
-    #default = "/static/homsar.jpg"
-    #size=40
-    #email = "yx0662@gmail.com"
-    #g=self.gravatarCM(email,default,size)
-    
     template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,}
     self.htmlRenderCM('../template/one.html',template_values)
  
 class DocTagReceive(CcdjhMarx):
   def get(self,tagc,page=1):
     page=int(page)
-    tagText=tagc
+    tagText=urllib.unquote(tagc).decode("utf-8")
     limit=2
-    m=DocPost.all().filter('tags =', tagc)
+    m=DocPost.all().filter('tags =', tagText)
     count=m.count()
     if (page-1)*limit>count:
       self.redirect("/error/")
