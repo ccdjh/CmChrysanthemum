@@ -44,9 +44,9 @@ class DocPostReceive(CcdjhMarx):
         cccc.tagcount += 1
         cccc.put()
       else:
-        ccc.tag=db.Category(vvv)
+        ccc.tag=vvv
         ccc.put()
-      vvvv=db.Category(vvv)
+      vvvv=vvv
       modelDocPost.tags.append(vvvv)
       modelDocPost.put()
     self.redirect("/")

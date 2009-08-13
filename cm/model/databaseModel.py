@@ -6,7 +6,7 @@ class DocPost(db.Model):
     date = db.DateTimeProperty(auto_now_add=True)
     author = db.UserProperty()
     idc = db.IntegerProperty()
-    tags = db.ListProperty(db.Category)
+    tags = db.StringListProperty()
     commentcount = db.IntegerProperty(default=0)
     
 class DocComment(db.Model):
