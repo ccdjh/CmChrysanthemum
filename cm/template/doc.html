@@ -10,7 +10,7 @@
 <div id="main">
         <div id="center">{% for mdp in modelDocPost %}
             <div class="doc">
-                <div class="title"><h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1></div>
+                <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1></div>
                 <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
                 <span>on {{ mdp.date|date:"m-j-Y" }}</span>
                 <div class="content">{{ mdp.content|linebreaks }}</div>

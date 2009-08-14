@@ -49,7 +49,7 @@ class DocPostReceive(CcdjhMarx):
       vvvv=vvv
       modelDocPost.tags.append(vvvv)
       modelDocPost.put()
-    self.redirect("/")
+    self.redirect(self.request.referer)
     
 class DocCommentReceive(CcdjhMarx):
   def post(self):
@@ -118,4 +118,15 @@ class AboutReceive(CcdjhMarx):
       m=modelProfileb.key().id()
       modelProfileb.idc = m
       modelProfileb.put()
-    self.redirect(self.request.referer)    
+    self.redirect(self.request.referer)
+    
+class DocPutReceive(CcdjhMarx):
+  def post(self):
+    c = self.request.get("commentIdc")
+    cc=int(c)
+    modelDocPost=DocPost.get_by_id(cc)
+    modelDocPost.content = self.request.get("content")
+    modelDocPost.title = self.request.get("title")
+    modelDocPost.put()
+    self.redirect("/admin/doclist/")
+    

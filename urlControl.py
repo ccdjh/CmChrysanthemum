@@ -7,6 +7,8 @@ from cm.view.baseControl import Error
 from cm.view.htmlConrtol import AdminPost
 from cm.view.postControl import DocPostReceive
 from cm.view.getControl import DelDocReceive
+from cm.view.htmlConrtol import DocPut
+from cm.view.postControl import DocPutReceive
 
 from cm.view.getControl import DocOneReceive
 from cm.view.postControl import DocCommentReceive
@@ -35,8 +37,10 @@ application = webapp.WSGIApplication([
                                         (r'/admin/about/', About),
                                         (r'/image/(?P<idc>[0-9]{1,9})/', AboutImageReceive),
                                         (r'/admin/doclistreceive/', DocListReceive),
-                                        (r'/doc/(?P<idc>[0-9]{1,9})/', DocOneReceive),
+                                        (r'/doc/(?P<idc>[0-9]{1,9})/(?P<title>[^/]+)/', DocOneReceive),
                                         (r'/admin/deldoc/(?P<idc>[0-9]{1,9})/', DelDocReceive),
+                                        (r'/admin/putdoc/(?P<idc>[0-9]{1,9})/', DocPut),
+                                        (r'/admin/putdocreceive/', DocPutReceive),
                                         (r'/admin/delcomment/(?P<idc>[0-9]{1,9})/(?P<idd>[0-9]{1,9})/', DelCommentReceive),
                                         (r'/comment/$', DocCommentReceive),
                                         (r'/tag/(?P<tagc>[^/]+)/', DocTagReceive),

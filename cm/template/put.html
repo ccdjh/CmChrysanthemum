@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}The current time{% endblock %}
+    {% block content %}
+    {% for d in y %}
+    <form action="/admin/putdocreceive/" method="post">
+    <input type="text" name="title"  class="inputtitle" value="{{ d.title }}">Title 
+        <br>
+        <div><textarea name="content" rows="18" cols="70">{{ d.content }}</textarea></div>
+        <br>
+        <div><input type="hidden" name="commentIdc" value="{{ d.idc }}"/>{{ d.idc }}<div>
+      <div><input type="submit" value="Put Doc"></div>
+    </form>
+      
+      <h3><a href="/">back main</a></h3>
+      <h3><a href="/admin/doclist/">Doc List</a></h3>
+      <h3><a href="/admin/about/">About Me</a></h3>
+    {% endfor %}
+    {% endblock %}

@@ -29,7 +29,7 @@
       {% for co in comment %}
         <div>
         <span>{{ co.title }}</span>
-        <span><a href="/doc/{{ co.idc }}/">View</a></span>|<span><a href="/admin/deldoc/{{ co.idc }}/">Del </a></span>
+        <span><a href="/doc/{{ co.idc }}/">View</a></span>|<span><a href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
         </div>------>>
         {% for mdoo in co.post_comment %}|
             <span>{{ mdoo.comment }}  <a href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>

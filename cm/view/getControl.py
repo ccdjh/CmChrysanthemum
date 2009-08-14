@@ -32,7 +32,7 @@ class Main(CcdjhMarx):
     self.htmlRenderCM('../template/doc.html',template_values)
 
 class DocOneReceive(CcdjhMarx):
-  def get(self,idc):
+  def get(self,idc,title):
     idcc=int(idc)
     modelDocOne=DocPost.all().filter('idc = ', idcc)
     modelDocOne.get()
@@ -98,4 +98,5 @@ class DelCommentReceive(CcdjhMarx):
     yy=DocPost.get_by_id(gg)
     yy.commentcount=yy.commentcount-1
     yy.put()
-    self.redirect(self.request.referer)    
+    self.redirect(self.request.referer)
+    

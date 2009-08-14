@@ -35,4 +35,11 @@ class Feed(CcdjhMarx):
   def get(self):
     feed=DocPost.all().fetch(limit=2)
     template_values = {'feed': feed,}
-    self.htmlRenderCM('../template/feed.xml',template_values)      
+    self.htmlRenderCM('../template/feed.xml',template_values)
+    
+class DocPut(CcdjhMarx):
+  def get(self,idc):
+    g =int(idc)
+    y=DocPost.all().filter('idc = ', g)
+    template_values = {'y': y,}
+    self.htmlRenderCM('../template/put.html',template_values)
