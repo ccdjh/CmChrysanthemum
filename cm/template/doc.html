@@ -30,10 +30,11 @@
         <h2 class="r">Tag</h2>
         <ul id="taglist">{% for tag in tagList %}
             <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
-        </ul>
-        <h2 class="r">Link</h2>
-        <ul id="linklist">{% for li in link %}
-            <li><a href="{{ li.link }}">{{ li.name }}</a></li>{% endfor %}
+        </ul>{% for li in link %}
+        <h2 class="r">{{ li.name }}</h2>
+        <ul id="linklist">
+            {% for lit in li.list_you %}<li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
+            {% endfor %}
         </ul>
         <h2 class="r">All</h2>
         <ul id="textall">

@@ -36,3 +36,9 @@ class ListYou(db.Model):
     name = db.StringProperty(multiline=False)
     link = db.LinkProperty()
     idc = db.IntegerProperty()
+    
+class ListYouTwo(db.Model):
+      contact = db.ReferenceProperty(ListYou,collection_name='list_you')
+      comment = db.StringProperty(multiline=False)
+      link = db.LinkProperty()
+      idc = db.IntegerProperty()

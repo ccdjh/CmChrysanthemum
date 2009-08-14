@@ -13,6 +13,7 @@ from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocComment
 from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import ListYou
+from cm.model.databaseModel import ListYouTwo
 from cm.model.databaseModel import Profile
 
 
@@ -84,11 +85,26 @@ class DocListReceive(CcdjhMarx):
   def post(self):
     modelListYou=ListYou()
     modelListYou.name = self.request.get("linkname")
-    modelListYou.link = db.Link(self.request.get("link"))
     modelListYou.put()
     m=modelListYou.key().id()
     modelListYou.idc = m
     modelListYou.put()
+    self.redirect(self.request.referer)
+    
+class DocListReceiveTwo(CcdjhMarx):
+  def post(self):
+    from cm.model.databaseModel import ListYou
+    from cm.model.databaseModel import ListYouTwo
+    c = self.request.get("commentIdc")
+    cc=int(c)
+    q=ListYou.get_by_id(cc)
+    ListYou = ListYouTwo(contact=q)
+    ListYou.comment = self.request.get("linkname")
+    ListYou.link = db.Link(self.request.get("link"))
+    ListYou.put()
+    m=ListYou.key().id()
+    ListYou.idc = m
+    ListYou.put()
     self.redirect(self.request.referer)
     
 class AboutReceive(CcdjhMarx):
