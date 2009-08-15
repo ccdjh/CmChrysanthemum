@@ -1,40 +1,37 @@
 {% extends "base.html" %}
-
-
-<!-- ftitle-->
 {% block title %}The current time{% endblock %}
+
 {% block header %}
 <div id="header"> {% for p in pro %}
-	<h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
-	<h2 id="blog_description">{{ p.description }} </h2> 
+    <h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
+    <h2 id="blog_description">{{ p.description }} </h2> 
 </div>{% endfor %}
 {% endblock %}
-{% block content %}
- <div class="tagtitle">{% for mdp in modelDocTag %}
-        <span>{{ mdp.idc }}</span>
-        <span>{{ mdp.date }}</span>
-        <h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1>
-        <div>{{ mdp.content|linebreaks }}</div>
-        {% for t in mdp.tags %}
-            <a href="/tag/{{ t }}/">{{  t  }}</a>
-        {% endfor %}
-    {% endfor %}
-</div>
-    {% if mm.previous or mm.next %}
-	<div id="nav_post">
-		{% if mm.previous %}
-		<div id="nav_prev">
-			<a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a>
-		</div>
-		{% endif %}
 
-		{% if mm.next %}	
-		<div id="nav_next">
-				<a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a>
-		</div>
-		{% endif %}	
-	</div>
-    {% endif %}
+{% block content %}
+<div class="tagtitle">{% for mdp in modelDocTag %}
+    <span>{{ mdp.idc }}</span>
+    <span>{{ mdp.date }}</span>
+    <h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1>
+    <div>{{ mdp.content|linebreaks }}</div>
+    {% for t in mdp.tags %}
+        <a href="/tag/{{ t }}/">{{  t  }}</a>
+    {% endfor %}{% endfor %}
+</div>
+
+{% if mm.previous or mm.next %}
+<div id="nav_post">
+    {% if mm.previous %}
+    <div id="nav_prev">
+	<a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a>
+    </div>{% endif %}
+
+    {% if mm.next %}	
+    <div id="nav_next">
+	<a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a>
+    </div>{% endif %}	
+</div>
+{% endif %}
     
-    <h1><a href="/">main</a></h1>
+<h1><a href="/">main</a></h1>
 {% endblock %}

@@ -1,49 +1,40 @@
 {% extends "base.html" %}
-
-
-<!-- ftitle-->
 {% block title %}The current time{% endblock %}
-  
-    {% block content %}
-    <!-- content.from./docreceive/-->
-    
-    <form action="/admin/doclistreceive/" method="post">
+{% block content %}
+<form action="/admin/doclistreceive/" method="post">
     <input type="text" name="linkname">name
     <input type="submit" value="Sign Guestbook">
+</form>
+{% for li in link %}
+<div>
+    <span>{{ li.name }}</span><a href="/admin/deldoclist/{{ li.idc }}/">Del</a>
+    <form action="/admin/doclistreceivetwo/" method="post">
+        <input type="text" name="linkname">name
+        <input type="text" name="link">Link
+        <input type="hidden" name="commentIdc" value="{{ li.idc }}"/>
+        <input type="submit" value="two list">
     </form>
-    
-      {% for li in link %}
-        <div>
-            <span>{{ li.name }}</span><a href="/admin/deldoclist/{{ li.idc }}/">Del</a>
-            <form action="/admin/doclistreceivetwo/" method="post">
-            <input type="text" name="linkname">name
-            <input type="text" name="link">Link
-            <input type="hidden" name="commentIdc" value="{{ li.idc }}"/>
-            <input type="submit" value="two list">
-            </form>
-                <div>
-                    {% for lit in li.list_you %}
-                        <a href="{{ lit.link }}">{{ lit.comment }}</a>
-                    {% endfor %}
-                </div>
-        </div>
-        <hr>
-      {% endfor %}
-      
-        <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-        <h3><a href="/">back main</a></h3>
-      
-        <hr>
-        <hr>
-        <hr>
-      {% for co in comment %}
-        <div>
-        <span>{{ co.title }}</span>
-        <span><a href="/doc/{{ co.idc }}/">View</a></span>|<span><a href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
-        </div>------>>
-        {% for mdoo in co.post_comment %}|
-            <span>{{ mdoo.comment }}  <a href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
-        {% endfor %}
-        <hr>
-      {% endfor %}
-    {% endblock %} 
+    <div>
+    {% for lit in li.list_you %}
+        <a href="{{ lit.link }}">{{ lit.comment }}</a>
+    {% endfor %}
+    </div>
+</div>
+    <hr>
+{% endfor %}
+<h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+<h3><a href="/">back main</a></h3>
+<hr>
+<hr>
+<hr>
+{% for co in comment %}
+<div>
+    <span>{{ co.title }}</span>
+    <span><a href="/doc/{{ co.idc }}/">View</a></span>|<span><a href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
+</div>------>>
+    {% for mdoo in co.post_comment %}|
+    <span>{{ mdoo.comment }}  <a href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
+    {% endfor %}
+    <hr>
+    {% endfor %}
+{% endblock %} 

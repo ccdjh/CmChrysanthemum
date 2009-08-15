@@ -21,30 +21,30 @@
 {% endblock %}
 {% block sidebar %}
     <div id="sidebar">
-        <h2 class="r">Profile</h2>
+        <div id="profile"><h2 class="r">Profile</h2>
         <ul id="taglist">{% for p in pro %}
             <li>{{ p.name }}</li>
             <li><img src='/image/{{ p.idc }}/'></img></li>
             <li>{{ p.about }}</li>{% endfor %}
-        </ul>
-        <h2 class="r">Tag</h2>
+        </ul></div>
+        <div id="tag"><h2 class="r">Tag</h2>
         <ul id="taglist">{% for tag in tagList %}
             <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
-        </ul>{% for li in link %}
-        <h2 class="r">{{ li.name }}</h2>
+        </ul></div>
+        {% for li in link %}
+        <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
         <ul id="linklist">
             {% for lit in li.list_you %}<li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
-            {% endfor %}
-        </ul>
-        <h2 class="r">All</h2>
+        </ul></div> {% endfor %}
+        <div id="all"><h2 class="r">All</h2>
         <ul id="textall">
             <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
             <li><a href="/admin/">admin</a></li>
-        </ul>
-	<h2 class="r">Subscribe</h2>
+        </ul></div>
+	<div id="subscribe"><h2 class="r">Subscribe</h2>
 	<ul id="rss">
             <li><span><img src="/static/image/feed.png"></img></span><a href="/feed/">feed</a></li>
-        </ul>
+        </ul></div>
     </div>
 </div>     
 {% endblock %}

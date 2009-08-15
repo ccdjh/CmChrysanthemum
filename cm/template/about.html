@@ -1,30 +1,20 @@
 {% extends "base.html" %}
-
-
-<!-- ftitle-->
 {% block title %}The current time{% endblock %}
-  
-    {% block content %}
-    <!-- content.from./docreceive/-->
-    {% for ab in about %}
-    <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
-        <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
-        <br>
-        <input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description
-        <br>
-        <input type="text" name="name" value="{{ ab.name }}" class="inputtitle">name
-        <br>
-        <div><input type="file" name="img"/></div>image
-        <br>
-        <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea></div>about
-        <br>
-      <div><input type="submit" value="Talk About You"></div>
-    </form>
-      <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-      <h3><a href="/">back main</a></h3>
-      <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
-      <blockquote>{{ ab.title }} and {{ ab.description }}</blockquote>
-      <div><img src='/image/{{ ab.idc }}/'></img></div>
-      <hr>
-      {% endfor %}
-    {% endblock %} 
+{% block content %}
+{% for ab in about %}
+<form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
+    <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
+    <div><input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description</div>
+    <input type="text" name="name" value="{{ ab.name }}" class="inputtitle">name
+    <div><input type="file" name="img"/>image</div>
+    <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea>about</div>
+    <input type="submit" value="Talk About You">
+</form>
+    <h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+    <h3><a href="/">back main</a></h3>
+    <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
+    <blockquote>{{ ab.title }} and {{ ab.description }}</blockquote>
+    <div><img src='/image/{{ ab.idc }}/'></img></div>
+    <hr>
+{% endfor %}
+{% endblock %} 
