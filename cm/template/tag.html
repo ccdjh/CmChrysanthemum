@@ -2,36 +2,65 @@
 {% block title %}The current time{% endblock %}
 
 {% block header %}
-<div id="header"> {% for p in pro %}
-    <h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
-    <h2 id="blog_description">{{ p.description }} </h2> 
-</div>{% endfor %}
+    <div id="theader"> {% for p in pro %}
+        <h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
+        <h2 id="blog_description">{{ p.description }} </h2> 
+    </div>{% endfor %}
 {% endblock %}
 
 {% block content %}
-<div class="tagtitle">{% for mdp in modelDocTag %}
-    <span>{{ mdp.idc }}</span>
-    <span>{{ mdp.date }}</span>
-    <h1><a href="/doc/{{ mdp.idc }}/">{{ mdp.title }}</a></h1>
-    <div>{{ mdp.content|linebreaks }}</div>
-    {% for t in mdp.tags %}
-        <a href="/tag/{{ t }}/">{{  t  }}</a>
-    {% endfor %}{% endfor %}
-</div>
+    <div id="tdoc">{% for mdp in modelDocTag %}
+        <span>{{ mdp.date }}</span>
+        <h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1>
+        <div>{{ mdp.content|linebreaks }}</div>{% for t in mdp.tags %}
+            <a href="/tag/{{ t }}/">{{  t  }}</a>{% endfor %}{% endfor %}
+    </div>
+{% endblock %}
 
-{% if mm.previous or mm.next %}
-<div id="nav_post">
-    {% if mm.previous %}
-    <div id="nav_prev">
-	<a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a>
-    </div>{% endif %}
+{% block docpage %}{% if mm.previous or mm.next %}
+    <div id="pdocpage">
+        <div id="nav_post">{% if mm.previous %}
+            <span class="navv_prev"><a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a></span>{% endif %}{% if mm.next %}	
+            <span class="navv_next"><a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a></span>{% endif %}	
+        </div>
+    </div> {% endif %}
+{% endblock %}
 
-    {% if mm.next %}	
-    <div id="nav_next">
-	<a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a>
-    </div>{% endif %}	
-</div>
-{% endif %}
-    
-<h1><a href="/">main</a></h1>
+{% block sidebar %}
+    <div id="sidebar">
+        <div id="profile"><h2 class="r">Profile</h2>
+            <ul id="taglist">{% for p in pro %}
+                <li>{{ p.name }}</li>
+                <li><img src='/image/{{ p.idc }}/'></img></li>
+                <li>{{ p.about }}</li>{% endfor %}
+            </ul>
+        </div>
+        <div id="tag"><h2 class="r">Tag</h2>
+            <ul id="taglist">{% for tag in tagList %}
+                <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
+            </ul>
+        </div>
+        {% for li in link %}
+        <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
+            <ul id="linklist">{% for lit in li.list_you %}
+                <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
+            </ul>
+        </div> {% endfor %}
+        <div id="all"><h2 class="r">All</h2>
+            <ul id="textall">
+                <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
+                <li><a href="/admin/">admin</a></li>
+            </ul>
+        </div>
+	<div id="subscribe"><h2 class="r">Subscribe</h2>
+            <ul id="rss">
+                <li><span><img src="/static/image/feed.png"></img></span><a href="/feed/">feed</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div id="tfooter"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
+    </div>
 {% endblock %}

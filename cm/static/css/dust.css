@@ -4,7 +4,7 @@ padding: 0px;
 margin: 0px;
 font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
 }
-div#header{
+div#header,div#pheader,div#theader{
 background-color: #333;
 border-bottom: 2px solid #666;
 padding: 10px;
@@ -25,14 +25,12 @@ font-size: 12px;
 font-weight: normal;
 }
 
-div#center {
+div#docpage {
 clear: both;
 }
 
-div#sidebar {
-position: absolute;
-right: 10px;
-top: 100px;
+div#sidebar,div#psidebar {
+float:right;
 margin-right: 20px;
 margin-bottom: 20px;
 width: 200px;
@@ -43,19 +41,22 @@ padding: 10px;
 text-align: left;
 }
 
-div#main {
-margin: 0px 222px 0px 20px;
+div#main,div#pdoc,div#tdoc{
+margin: 0px 72px 0px 20px;
 text-align: left;
-padding: 0px 0px 20px 0px
+padding: 0px 0px 20px 0px;
+width: 550px;
+float:left;
 }
 
-div#footer {
+div#footer,div#pfooter,div#tfooter {
 color: #E0E0C6;
 text-align: center;
 padding: 10px;
 font-size: 12px;
 background-color: #333;
 border-top: 2px solid #666;
+clear: both;
 }
 div#commentcount{
     display:none;
@@ -68,18 +69,6 @@ font-size: 9pt;
 color: #999999;
 }
 
-.content{
-    width:550px;
-    font-size: 13px;
-}
-.ptitle{
-    width:550px;
-    font-size: 13px;
-}
-.tagtitle{
-    width:550px;
-    font-size: 13px;
-}
 a:link {
 color: #7A7A60;
 border-bottom: 1px dotted #7A7A60;

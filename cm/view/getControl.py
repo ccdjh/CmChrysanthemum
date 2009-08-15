@@ -41,7 +41,10 @@ class DocOneReceive(CcdjhMarx):
     u=users.get_current_user()
     listNeed=self.listNeedCM()
     pro=Profile.all()
-    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,'pro': pro,}
+    tagList=DocTag.all()
+    link=ListYou.all()
+    listNeed=self.listNeedCM()
+    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,}
     self.htmlRenderCM('../template/one.html',template_values)
  
 class DocTagReceive(CcdjhMarx):
@@ -57,7 +60,10 @@ class DocTagReceive(CcdjhMarx):
     of=(mm['current']-1)*limit
     modelDocTag=m.fetch(limit=limit, offset=of)
     pro=Profile.all()
-    template_values = {'modelDocTag': modelDocTag,'mm': mm,'pro': pro,}
+    tagList=DocTag.all()
+    link=ListYou.all()
+    listNeed=self.listNeedCM()
+    template_values = {'modelDocTag': modelDocTag,'mm': mm,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,}
     self.htmlRenderCM('../template/tag.html',template_values)
     
 class AboutImageReceive(CcdjhMarx):
