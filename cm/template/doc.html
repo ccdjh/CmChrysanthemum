@@ -9,15 +9,15 @@
 {% endblock %}
 
 {% block content %}
-    <div id="main">
-        <div id="center">{% for mdp in modelDocPost %}
+    <div id="mainb">
+        <div id="centerb">{% for mdp in modelDocPost %}
             <div class="doc">
+                <div id="commentcount"><a href="#">{{ mdp.commentcount }}</a></div> 
                 <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1></div>
                 <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
-                <span>on {{ mdp.date|date:"m-j-Y" }}</span>
+                <span class="date">on {{ mdp.date|date:"m-j-Y" }}</span>
                 <div class="content">{{ mdp.content|linebreaks }}</div>
                 <div class="listtag"> {% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div> 
-                <div id="commentcount">{{ mdp.commentcount }}</div> 
             </div>{% endfor %}  
         </div>
     </div>  
@@ -27,9 +27,9 @@
     <div id="sidebar">
         <div id="profile"><h2 class="r">Profile</h2>
             <ul id="taglist">{% for p in pro %}
-                <li>{{ p.name }}</li>
-                <li><img src='/image/{{ p.idc }}/'></img></li>
-                <li>{{ p.about }}</li>{% endfor %}
+                <div id="profilename">{{ p.name }}</div>
+                <div id="profileimg"><img src='/image/{{ p.idc }}/'></img></div>
+                <div id="profileabout">{{ p.about }}</div>{% endfor %}
             </ul>
         </div>
         <div id="tag"><h2 class="r">Tag</h2>
@@ -38,10 +38,12 @@
             </ul>
         </div>
         {% for li in link %}
+        <div id=lixxx>
         <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
             <ul id="linklist">{% for lit in li.list_you %}
                 <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
             </ul>
+        </div>
         </div> {% endfor %}
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">

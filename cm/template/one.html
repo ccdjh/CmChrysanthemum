@@ -12,9 +12,9 @@
     <div id="psidebar">
         <div id="profile"><h2 class="r">Profile</h2>
             <ul id="taglist">{% for p in pro %}
-                <li>{{ p.name }}</li>
-                <li><img src='/image/{{ p.idc }}/'></img></li>
-                <li>{{ p.about }}</li>{% endfor %}
+                <div id="profilename">{{ p.name }}</div>
+                <div id="profileimg"><img src='/image/{{ p.idc }}/'></img></div>
+                <div id="profileabout">{{ p.about }}</div>{% endfor %}
             </ul>
         </div>
         <div id="tag"><h2 class="r">Tag</h2>
@@ -23,10 +23,12 @@
             </ul>
         </div>
         {% for li in link %}
+        <div id=lixxx>
         <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
             <ul id="linklist">{% for lit in li.list_you %}
                 <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
             </ul>
+         </div>   
         </div> {% endfor %}
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">
@@ -44,12 +46,14 @@
 
 {% block content %}
     <div id="pdoc">{% for mdo in modelDocOne %}
-        <h1>{{ mdo.title }}</h1>   
-        <span>{{ mdo.date|date:"m-j-Y" }}</span>
-        <span class="author">{% if mdo.author %}  Posted by <a href="#">{{ mdo.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
-        <span>{{ mdo.content|linebreaks }}</span>
-        <span>{{ mdo.commentcount }}</span>{% for t in mdo.tags %}
-        <a href="/tag/{{ t|escape }}/">{{  t  }}</a>{% endfor %}{% if u %}    
+        <div class="doc">
+            <div id="commentcount"><a href="#">{{ mdo.commentcount }}</a></div> 
+            <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdo.title }}</a></h1></div>
+            <span class="author">{% if mdo.author %}  Posted by <a href="#">{{ mdo.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
+            <span class="date">on {{ mdo.date|date:"m-j-Y" }}</span>
+            <div class="content">{{ mdo.content|linebreaks }}</div>
+            <div class="listtag"> {% for t in mdo.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div> 
+        </div>{% if u %}
         <form action="/comment/" method="post">
             <div><textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea></div>
             <div><input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/><div>
@@ -61,8 +65,7 @@
             {% for mdoo in mdo.post_comment %}
             <div><img src='{{ mdoo.image }}' alt="guest" /></div>
             <h3>{{ mdoo.comment|escape }}</h3>
-            <span>{{ mdoo.idc }}</span>
-            <span>{{ mdoo.date }}</span>
+            <span>{{ mdoo.date|date:"m-j-Y" }}</span>
             <span>{{ mdoo.author  }}</span>{% endfor %}
     </div>{% endfor %}        
 {% endblock %}

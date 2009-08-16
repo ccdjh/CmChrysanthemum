@@ -10,15 +10,17 @@
 
 {% block content %}
     <div id="tdoc">{% for mdp in modelDocTag %}
-        <span>{{ mdp.date }}</span>
-        <h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1>
-        <div>{{ mdp.content|linebreaks }}</div>{% for t in mdp.tags %}
-            <a href="/tag/{{ t }}/">{{  t  }}</a>{% endfor %}{% endfor %}
+        <div id="commentcount"><a href="#">{{ mdp.commentcount }}</a></div> 
+        <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1></div>
+        <span class="date">{{ mdp.date|date:"m-j-Y" }}</span>
+        <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span> 
+        <div class="content">{{ mdp.content|linebreaks }}</div>{% for t in mdp.tags %}
+        <div class="listtag"><a href="/tag/{{ t }}/">{{  t  }}</a></div>{% endfor %}{% endfor %}
     </div>
 {% endblock %}
 
 {% block docpage %}{% if mm.previous or mm.next %}
-    <div id="pdocpage">
+    <div id="tdocpage">
         <div id="nav_post">{% if mm.previous %}
             <span class="navv_prev"><a href="/tag/{{ tagText }}/{{mm.previous}}/" class="nav">Siguientes >></a></span>{% endif %}{% if mm.next %}	
             <span class="navv_next"><a href="/tag/{{ tagText }}/{{mm.next}}/" class="nav"><< Anteriores</a></span>{% endif %}	
@@ -27,12 +29,12 @@
 {% endblock %}
 
 {% block sidebar %}
-    <div id="sidebar">
+    <div id="tsidebar">
         <div id="profile"><h2 class="r">Profile</h2>
             <ul id="taglist">{% for p in pro %}
-                <li>{{ p.name }}</li>
-                <li><img src='/image/{{ p.idc }}/'></img></li>
-                <li>{{ p.about }}</li>{% endfor %}
+                <div id="profilename">{{ p.name }}</div>
+                <div id="profileimg"><img src='/image/{{ p.idc }}/'></img></div>
+                <div id="profileabout">{{ p.about }}</div>{% endfor %}
             </ul>
         </div>
         <div id="tag"><h2 class="r">Tag</h2>
@@ -41,10 +43,12 @@
             </ul>
         </div>
         {% for li in link %}
+        <div id=lixxx>
         <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
             <ul id="linklist">{% for lit in li.list_you %}
                 <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
             </ul>
+        </div>    
         </div> {% endfor %}
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">

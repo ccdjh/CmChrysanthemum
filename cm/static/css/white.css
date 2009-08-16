@@ -1,0 +1,195 @@
+body {
+background-color: #F0F0F0;
+padding: 20px 0px 20px 0px;
+margin: 0px;
+font-family: Lucida Grande, Verdana, Tahoma, hei;
+}
+
+div#main {
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+background-color: #FFF;
+border-right: 1px solid #E0E0F0;
+border-bottom: 1px solid #E0E0F0;
+}
+
+#header ,#pheader{
+background-image: url("/static/image/bgheader.gif");
+height: 80px;
+background-color: #eee ;
+}
+
+h1#blog_title {
+padding-top: 10px;
+font-size: 22px;
+font-family: "Arial Black";
+text-align: center;
+color: #99A;
+letter-spacing: -1px;
+}
+
+h2#blog_descriptionb {
+display: block;
+padding-top: 5px;
+font-size: 11px;
+font-family: "Arial";
+text-align: center;
+color: #AAB;
+letter-spacing: 0px;
+}
+
+div.bar {
+padding: 5px;
+background-color: #E0E0F0;
+font-size: 11px;
+color: #A0A0B0;
+margin: 10px;
+text-align: right;
+}
+
+div.license {
+padding: 2px;
+background-color: #FFF;
+font-size: 10px;
+color: #A0A0B0;
+line-height: 16px;
+text-align: center;
+}
+
+#footer,#pfooter,#tfooter {
+padding: 5px;
+background-color: #F0F0FF;
+font-size: 10px;
+color: #A0A0B0;
+margin: 10px;
+text-align: center;
+}
+
+div#bottom {
+height: 5px;
+}
+
+#tag,#lixxx,#all,#subscribe ,#profile h2,#profileimg{
+    display:none;
+}
+h2#blog_description{
+    position: absolute;
+    top:130px;
+    padding: 5px;
+    background-color: #F0F0FF;
+    font-size: 10px;
+    color: #A0A0B0;
+    margin: 10px;
+    text-align: center;
+    width: 460px
+}
+.listtag{
+    display:none;
+}
+.author{
+    display:none;
+}
+div#contentb {
+text-align: left;
+}
+
+div.tagged {
+padding: 0px 5px 0px 5px;
+line-height: 18px;
+font-size: 11px;
+color: #C0C0CF;
+text-align: center;
+}
+
+div.tagged span.tag {
+color: #60606F;
+font-weight: bold;
+}
+
+div.content {
+padding: 30px 15px 5px 15px;
+line-height: 18px;
+margin-bottom: 10px;
+font-size: 12px;
+color: #445;
+text-align: justify;
+}
+
+div.tags {
+padding: 10px 0px 0px 0px;
+font-size: 10px;
+color: #C0C0CF;
+}
+
+span.date {
+display: block;
+padding: 5px 5px 7px 5px;
+color: #AAA;
+font-size: 10px;
+}
+
+.title h1 {
+display: block;
+padding: 0px 5px 5px 10px;
+color: #99A;
+font-size: 14px;
+font-weight: bold;
+position:relative;
+top:60px;
+left:25px
+}
+
+a {
+outline: none;
+}
+
+a:link, a:visited {
+color: #99A;
+text-decoration: none;
+outline: none;
+}
+
+a:hover {
+color: #667;
+text-decoration: underline;
+outline: none;
+}
+
+a:active {
+background-color: #667;
+color: #FFF;
+text-decoration: none;
+outline: none;
+}
+
+#commentcount{
+   display: block;
+    position:relative;
+    top:85px;
+    left:8px 
+}
+
+#commentcount a:link, #commentcount a:visited {
+padding: 4px 5px 4px 5px;
+background-color: #667;
+color: #FFF;
+text-decoration: none;
+font-size: 9px;
+}
+
+#commentcount a:hover {
+padding: 4px 5px 4px 5px;
+background-color: #334;
+color: #FFF;
+text-decoration: none;
+font-size: 9px;
+}
+
+#commentcount a:active {
+padding: 4px 5px 4px 5px;
+background-color: #FFF;
+color: #667;
+text-decoration: none;
+font-size: 9px;
+}

@@ -29,7 +29,7 @@ div#docpage {
 clear: both;
 }
 
-div#sidebar,div#psidebar {
+div#sidebar,div#psidebar,div#tsidebar {
 float:right;
 margin-right: 20px;
 margin-bottom: 20px;
@@ -41,7 +41,7 @@ padding: 10px;
 text-align: left;
 }
 
-div#main,div#pdoc,div#tdoc{
+div#mainb,div#pdoc,div#tdoc{
 margin: 0px 72px 0px 20px;
 text-align: left;
 padding: 0px 0px 20px 0px;
