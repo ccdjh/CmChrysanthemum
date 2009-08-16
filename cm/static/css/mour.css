@@ -1,0 +1,112 @@
+body {
+text-align:center;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+color: #f0f0f0;
+padding: 0;
+background: #384658;
+}
+a, a:hover, a:visited {
+color: #a3b1c3;
+text-decoration: none;
+}
+a:hover {
+color: #ccd4de;
+}
+#header ,#pheader,#theader{
+margin-right: auto;
+margin-left: auto;
+text-align:left;
+width: 700px;
+}
+.title{
+font-weight: bolder;
+border-bottom: 2px solid #495666;
+font-size: 11px;
+}
+#commentcount,.tagcount{
+    display:none;
+}
+.r{
+   font-size: 12px;
+   border-bottom: 2px solid #495666;
+}
+li{
+    list-style-type:none;
+    
+}
+#blog_title {
+font-size: 10px;
+}
+#blog_description{
+    border-bottom: 2px solid #495666;
+}
+#main{
+margin-right: auto;
+margin-left: auto;
+width: 700px;
+}
+#mainb,#pdoc,#tdoc{
+margin-right: auto;
+margin-left: auto;
+width: 500px;
+float:left;
+text-align: left;
+font-size: 11px;
+}
+#sidebar,#psidebar,#tsidebar {
+float: right;
+width: 180px;
+margin-left: 10px;
+margin-top: 10px;
+text-align: left;
+}
+h3.label {
+font-size: 11px;
+border-bottom: 1px solid #505b68;
+margin: 10px 0 3px 0;
+padding-bottom: 3px;
+}
+.item {
+font-size: 10px;
+margin: 0 0 5px 0;
+}
+div#summary img {
+float: left;
+margin: 0 10px 10px 0;
+}
+
+h2.title {
+font-weight: bold;
+font-size: 18px;
+margin: 5px 0 3px 0;
+padding-bottom: 5px;
+border-bottom: 1px solid #505b68;
+padding-top: 5px;
+}
+div.attribute {
+font-size: 10px;
+padding: 0 0 10px 0;
+}
+div.entry {
+font-size: 12px;
+padding: 5px 0 30px 0;
+line-height: 20px;
+}
+#footer,#tfooter ,#pfooter{
+clear:both;
+margin-right: auto;
+margin-left: auto;
+padding: 5px 0px 0px 0px;
+font-size: 10px;
+border-top: 1px solid #697480;
+text-align: center;
+width: 700px;
+}
+#docpage,#tdocpage,#pdocpage{
+clear:both;
+margin-right: auto;
+margin-left: auto;
+font-size: 10px;
+text-align: left;
+width: 700px;
+}
