@@ -1,0 +1,125 @@
+body {
+padding: 0px;
+margin: 0px;
+font-family: Verdana, "Lucida Grande", "Lucida Sans", sans, Hei;
+background-image: url("/static/image/bgnight.png");
+background-repeat: repeat-y;
+font-size:12px
+}
+#main {
+width: 730px;
+margin: 0px auto 0px 40px;
+background-image: url("/static/image/topnight.png");
+background-repeat: no-repeat;
+}
+#sidebar,#psidebar,#tsidebar {
+width: 200px;
+float: right;
+color: #fff;
+}
+#mainb,#pdoc,#tdoc{
+width: 500px;
+float: left;
+margin-top: 100px;
+
+}
+#header.#pheader,#theader {
+width: 500px;
+position: absolute;
+top: 1px;
+
+}
+#docpage,#tdocpage{
+    clear: both;
+}
+#footer,#pfooter,#tfooter{
+clear: both;
+font-size: 10px;
+color: #CCC;
+padding: 40px 0px 10px 0px;
+
+}
+#blog_description{
+    display: none;
+}
+#commentcount{
+    position: relative;
+    top: 68px;
+    left: 300px;
+}
+a:link, a:visited {
+color: #575767;
+text-decoration: none;
+}
+
+a:hover {
+color: #90909F;
+text-decoration: underline;
+}
+
+a:active {
+background-color: #575767;
+color: #FFF;
+text-decoration: none;
+}
+
+#sidebar a:link, #sidebar a:visited,#psidebar a:link, #psidebar a:visited ,#tsidebar a:link, #tsidebar a:visited{
+color: #CCF;
+text-decoration: none;
+}
+
+#sidebar a:hover,#psidebar a:hover,#tsidebar a:hover {
+color: #FFF;
+text-decoration: underline;
+}
+
+#sidebar a:active,#psidebar a:active,#tsidebar a:active  {
+background-color: #90909F;
+color: #FFF;
+text-decoration: none;
+}
+#blog_title {
+color: #FFF;
+font-size: 15px;
+display: block;
+padding-top: 7px;
+padding-left: 10px;
+}
+
+#blog_title a:link, #blog_title a:visited {
+font-size: 15px;
+font-weight: bold;
+color: #fff;
+text-decoration: none;
+}
+
+.title a:link, .title a:visited {
+font-size: 18px;
+font-weight: bold;
+color: #575767;
+text-decoration: none;
+}
+
+.title a:hover {
+color: #90909F;
+text-decoration: underline;
+}
+
+.title a:active {
+background-color: #575767;
+color: #FFF;
+text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+h2.r {
+font-size: 13px;
+font-weight: bold;
+color: #FFF;
+text-align:left;
+margin-left:30px;
+}
+.tagcount{
+    display: none;
+}
