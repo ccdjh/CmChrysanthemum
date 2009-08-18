@@ -1,0 +1,119 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+        background-color: #333;
+}
+
+body,ul,ol,dl,h1,h2,h3,h4,h5,h6,td,th,
+caption,pre,p,blockquote,input,textarea {
+    font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+
+blockquote {
+	margin: 10px 6px 10px 4px;
+	padding: 10px 10px 16px 6px;
+	border-left: 2px solid #EAEAEA;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+  font-family: Helvetica, Arial, "Lucida Grande", Verdana, sans-serif;
+  clear: both;
+}
+#main {
+    background-color: #333;
+}
+#mainb,#pdoc,#tdoc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    background-color: #FFF;
+    border-right: 1px solid #A9A9A9;
+    z-index:-1;
+    padding-top:40px;
+}
+
+#mainb a,#pdoc a,#tdoc a {
+color: #125AA7;
+text-decoration: none;
+outline: none;
+}
+div#mainb a:hover { color: #000; }
+#sidebar,#psidebar,#tsidebar {
+    position: absolute;
+    top: 60px;
+    left: 601px;
+    width: 240px;
+    color: #EAEAEA;
+    background-color: #333;
+}
+
+#sidebar a,#psidebar a,#tsidebar a { color: #F0F0F0; text-decoration: none; outline: none; }
+#sidebar a:hover,#psidebar a:hover,#tsidebar a:hover { color: #FFF; border-bottom: 1px solid #FFF; }
+h1#blog_title {
+    font-weight: bolder;
+    font-size: 16px;
+    background-color: #FBFBFB;
+    border: 1px solid #F9F9F9;
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: right;
+    color: #666;
+    width: 500px;
+    position: absolute;
+    left:10px;
+}
+h1#blog_title a {
+	color: #666;
+        text-decoration: none;
+}
+
+h1#blog_title a:hover {
+	text-decoration: none;
+        
+}
+.title {
+    margin: 10px 12px 0px 12px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #125AA7;
+    padding: 2px 5px 2px 5px;
+    border-bottom: 1px solid #F5F5F5;
+}
+.r {
+    color: #FAFAFA;
+    margin: 1px 0 9px 10px;
+    padding: 2px 0 4px 10px;
+    border-bottom: 1px solid #555;
+}
+div.doc {
+    margin: 0px 12px 0px 12px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+#footer,#pfooter,#tfooter {
+    margin: 2px 20px;
+    position: fixed;
+    bottom:1px;
+}
+
+#docpage,#tdocpage {
+    display: none;
+}
+#blog_description{
+    display: none;
+}
+.tagcount{
+    display: none;
+}
+#commentcount{
+    display: none;
+}
+ul {
+    list-style-type: none;
+}
