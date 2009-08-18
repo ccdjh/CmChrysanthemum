@@ -116,7 +116,7 @@ class AboutReceive(CcdjhMarx):
       modelProfile.about = self.request.get("about")
       modelProfile.title = self.request.get("title")
       modelProfile.description = self.request.get("description")
-      imgb = self.request.get("img")
+      imgb =  images.resize(self.request.get("img"),46,46)
       modelProfile.avatar = db.Blob(imgb)
       modelProfile.put()
       m=modelProfile.key().id()
