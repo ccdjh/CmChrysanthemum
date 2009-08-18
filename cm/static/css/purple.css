@@ -5,13 +5,27 @@ background-color: #90909F;
 background-image: url("http://mac.6.cn/weblog-static/themes/purple/bg.png");
 background-repeat: repeat-x;
 font-family: Lucida Grande, Verdana, Tahoma, hei;
+font-size: 12px;
 }
 
 div#header {
 height: 80px;
 }
-
-
+#sidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
+#tsidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
+#psidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
+#main{
+    width: 990px;
+}
 
 #tag {
 width: 200px;
@@ -20,201 +34,81 @@ left:1px;
 top:90px;
 }
 
-#sidebar {
-width: 200px;
-float: right;
-}
-
-div#mainb {
+#sidebar,#psidebar {
+width: 180px;
 float: left;
-width: 600px;
+}
+#tsidebar {
+width: 180px;
+float:right;
+}
+#tdoc {
+   
+float: left;
+width: 597px;
 margin-left:200px;
+background-color: #fff;
+}
+#mainb,#pdoc {
+float: left;
+width: 597px;
+margin-left:200px;
+background-color: #fff;
+padding-left:2px;
 }
 
-div#bottom_sep {
-height: 20px;
-clear: both;
-}
+
 #commentcount{
     display:none;
 }
-div#footer {
+#footer,#pfooter,#tfooter {
 background-image: url("http://mac.6.cn/weblog-static/themes/purple/bg_bottom.png");
 clear: both;
-}
-#docpage{
-    clear: both;
-}
-div#bottom_inside {
 font-size: 11px;
 text-align: left;
 padding: 10px;
 line-height: 22px;
 color: #FFF;
 }
-
-div#left_items {
-margin-top: 20px;
-padding-left: 20px;
+#docpage,#tdocpage{
+    clear: both;
 }
 
-div#left_items div.cur {
-background-color: #334;
-border: 1px solid #90909F;
-padding: 3px;
-margin: 0px 0px 5px 0px;
-font-size: 15px;
-color: #FFF;
-cursor: pointer;
--moz-border-radius: 5px;
-}
-
-div#left_items div.item a.tag:link, div#left_items div.item a.tag:visited {
-padding: 3px;
-margin: 0px 20px 5px 3px;
-font-size: 12px;
-color: #FFF;
-cursor: pointer;
--moz-border-radius: 5px;
-display: block;
-text-decoration: none;
-}
-
-div#left_items div.item a.tag:hover {
-background-color: #445;
-padding: 3px;
-margin: 0px 20px 5px 3px;
-font-size: 12px;
-color: #FFF;
-cursor: pointer;
--moz-border-radius: 5px;
-display: block;
-text-decoration: none;
-}
-
-div#left_items div.item a.tag:active {
-background-color: #112;
-padding: 3px;
-margin: 0px 20px 5px 3px;
-font-size: 12px;
-color: #FFF;
-cursor: pointer;
--moz-border-radius: 5px;
-display: block;
-text-decoration: none;
-}
-
-div#left_items div.left_title {
-padding: 3px;
-margin: 0px 20px 5px 0px;
-font-size: 16px;
-color: #A0A0AF;
-cursor: pointer;
-font-weight: bold;
-}
-
-div#left_items div.sep {
-height: 5px;
-}
-
-div#centerb {
+#centerb #pdoc,#tdoc {
 background-color: #FFF;
 border: 2px solid #556;
 -moz-border-radius: 7px;
 padding: 2px;
 }
 
-div.head {
-padding: 5px;
-font-size: 12px;
-}
 
-div.body {
-padding: 7px;
-font-size: 12px;
-}
 
-div#right_items {
+#sidebar,#psidebar,#tsidebar {
 margin-top: 20px;
-background-color: #666;
-margin-right: 20px;
+background-color: #383838;
+margin-right: 3px;
 border-top: 2px solid #222;
 border-bottom: 2px solid #222;
 border-right: 2px solid #222;
 -moz-border-radius: 0px 7px 7px 0px;
 }
+#profile{
+    color:#fff;
 
-div#right_items div.item {
-background-color: #383838;
-padding: 10px 10px 10px 10px;
-font-size: 11px;
-color: #FFF;
-}
-
-div#right_new {
-background-color: #222;
-color: #FFF;
-padding: 5px;
-font-size: 12px;
-}
-
-div.r_even {
-background-color: #444444;
-padding: 3px 3px 3px 10px;
-font-size: 11px;
-color: #FFF;
-}
-
-div.r_odd {
-background-color: #383838;
-padding: 3px 3px 3px 10px;
-font-size: 11px;
-color: #FFF;
-}
-
-div.top_right {
-float: right;
-padding: 5px;
-font-size: 11px;
-color: #334;
-}
-
-div#top div.top_right {
-float: right;
-padding: 5px;
-color: #FFF;
-font-size: 12px;
-}
-
-div#top div#top_inside {
-padding: 15px 0px 10px 15px;
-}
-
-div.object {
-border-top: 1px solid #CCC;
-padding: 5px;
-font-size: 12px;
-margin-bottom: 20px;
 }
 
 .title {
 color: #334;
-padding: 7px 10px 10px 10px;
 margin: 0px;
-font-size: 20px;
+font-size: 10px;
 font-family: "Arial Rounded MT Bold";
 background-image: url("http://mac.6.cn/weblog-static/themes/purple/h1_bg.png");
 font-weight: normal;
+padding-bottom:10px;
 }
 
-h1.title_main {
-padding: 5px 5px 2px 5px;
-margin: 0px;
-font-size: 18px;
-color: #FFF;
-}
 
-h2.dark {
+h2.r {
 color: #FFF;
 padding: 5px 7px 7px 7px;
 margin: 0px;
@@ -223,41 +117,14 @@ font-family: "Arial Rounded MT Bold";
 background-image: url("http://mac.6.cn/weblog-static/themes/purple/h2_bg_dark.png");
 font-weight: normal;
 }
-
-h2.title_sub {
-padding: 2px 2px 2px 5px;
-font-size: 12px;
-color: #90909F;
+#tag .r{
+color: #FFF;
+padding: 5px 7px 7px 7px;
 margin: 0px;
+font-size: 13px;
+background-image: none;
 }
 
-span.tip {
-color: #B0B0BF;
-}
-
-div.sub {
-font-size: 12px;
-padding: 3px;
-}
-
-div.toolbar {
-padding: 5px;
-text-align: right;
-font-size: 10px;
-color: #D0D0DF;
-}
-
-a.var:link, a.var:active, a.var:visited {
-border: none;
-text-decoration: none;
-color: inherit;
-}
-
-a.var:hover {
-border: none;
-color: inherit;
-text-decoration: underline;
-}
 
 a:link, a:active, a:visited {
 color: #556;
@@ -268,13 +135,32 @@ a:hover {
 color: #001;
 text-decoration: underline;
 }
-
-a.white:link, a.white:active, a.white:visited, div.license a:link, div.license a:active, div.license a:visited {
+#header a:link, #header a:active, #header a:visited,#pheader a:link, #pheader a:active, #pheader a:visited,#theader a:link, #theader a:active, #theader a:visited {
 color: #FFF;
 text-decoration: none;
 }
 
-a.white:hover, div.license a:hover {
+#header a:hover,#pheader a:hover,#theader a:hover {
+color: #FFF;
+text-decoration: underline;
+}
+
+#sidebar a:link, #sidebar a:active, #sidebar a:visited,#psidebar a:link, #psidebar a:active, #psidebar a:visited,#tsidebar a:link, #tsidebar a:active, #tsidebar a:visited {
+color: #FFF;
+text-decoration: none;
+}
+
+#sidebar a:hover,#psidebar a:hover,#tsidebar a:hover {
+color: #FFF;
+text-decoration: underline;
+}
+
+#footer a:link, #footer a:active, #footer a:visited,#pfooter a:link, #pfooter a:active, #pfooter a:visited,#tfooter a:link, #tfooter a:active, #tfooter a:visited{
+color: #FFF;
+text-decoration: none;
+}
+
+#footer a:hover,#pfooter a:hover,#tfooter a:hover {
 color: #FFF;
 text-decoration: underline;
 }
@@ -287,35 +173,17 @@ span.big {
 font-size: 150%;
 }
 
-input.sl {
-font-family: "Courier New", Courier, Hei, mono;
-font-size: 12px;
-width: 95px;
-background-color: #F7F7F7;
-color: #333;
-border-style: solid;
-border-width: 1px;
-padding: 2px;
-border-top-color: #C0C0C0;
-border-left-color: #C0C0C0;
-border-right-color: #CCC;
-border-bottom-color: #CCC;
-}
-
-input.sl:focus {
-font-family: "Courier New", Courier, Hei, mono;
-font-size: 12px;
-width: 95px;
-background-color: #FFF;
-color: #000;
-border-style: solid;
-border-width: 1px;
-padding: 2px;
-border-top-color: #3C0;
-border-left-color: #3C0;
-border-right-color: #3C0;
-border-bottom-color: #3C0;
-}
 #blog_description{
+    display: none;
+}
+ul {
+    list-style-type: none;
+
+}
+li{
+    left:-25px;
+    position: relative;
+}
+.tagcount{
     display: none;
 }

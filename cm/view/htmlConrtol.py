@@ -33,7 +33,7 @@ class About(CcdjhMarx):
     
 class Feed(CcdjhMarx):
   def get(self):
-    feed=DocPost.all().fetch(limit=2)
+    feed=DocPost.all().order('-date')
     template_values = {'feed': feed,}
     self.htmlRenderCM('../template/feed.xml',template_values)
     
