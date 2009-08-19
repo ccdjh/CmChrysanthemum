@@ -4,8 +4,7 @@
      xmlns:content="http://purl.org/rss/1.0/modules/content/"> 
         
 {% for f in feed %}
-    <channel>
-        <idc>{{ f.idc }}</idc>    
+    <channel> 
         <date>{{ f.date }}</date>
         <title>{{ f.title }}</title>
         <content>{{ f.content }}</content>

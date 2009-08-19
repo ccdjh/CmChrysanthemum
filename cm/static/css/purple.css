@@ -11,18 +11,7 @@ font-size: 12px;
 div#header {
 height: 80px;
 }
-#sidebar #tag h2.r{
-    font-size:22px;
-    color:#333;
-}
-#tsidebar #tag h2.r{
-    font-size:22px;
-    color:#333;
-}
-#psidebar #tag h2.r{
-    font-size:22px;
-    color:#333;
-}
+
 #main{
     width: 990px;
 }
@@ -34,22 +23,7 @@ left:1px;
 top:90px;
 }
 
-#sidebar,#psidebar {
-width: 180px;
-float: left;
-}
-#tsidebar {
-width: 180px;
-float:right;
-}
-#tdoc {
-   
-float: left;
-width: 597px;
-margin-left:200px;
-background-color: #fff;
-}
-#mainb,#pdoc {
+#mainb,#pdoc,#tdoc  {
 float: left;
 width: 597px;
 margin-left:200px;
@@ -58,9 +32,7 @@ padding-left:2px;
 }
 
 
-#commentcount{
-    display:none;
-}
+
 #footer,#pfooter,#tfooter {
 background-image: url("http://mac.6.cn/weblog-static/themes/purple/bg_bottom.png");
 clear: both;
@@ -73,15 +45,15 @@ color: #FFF;
 #docpage,#tdocpage{
     clear: both;
 }
-
+#f{
+    display: block;
+}
 #centerb #pdoc,#tdoc {
 background-color: #FFF;
 border: 2px solid #556;
 -moz-border-radius: 7px;
 padding: 2px;
 }
-
-
 
 #sidebar,#psidebar,#tsidebar {
 margin-top: 20px;
@@ -91,10 +63,11 @@ border-top: 2px solid #222;
 border-bottom: 2px solid #222;
 border-right: 2px solid #222;
 -moz-border-radius: 0px 7px 7px 0px;
+width: 180px;
+float: left;
 }
 #profile{
     color:#fff;
-
 }
 
 .title {
@@ -124,7 +97,18 @@ margin: 0px;
 font-size: 13px;
 background-image: none;
 }
-
+#sidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
+#tsidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
+#psidebar #tag h2.r{
+    font-size:22px;
+    color:#333;
+}
 
 a:link, a:active, a:visited {
 color: #556;
@@ -165,14 +149,6 @@ color: #FFF;
 text-decoration: underline;
 }
 
-img.p {
-border: 2px solid #474757;
-}
-
-span.big {
-font-size: 150%;
-}
-
 #blog_description{
     display: none;
 }
@@ -186,4 +162,7 @@ li{
 }
 .tagcount{
     display: none;
+}
+#commentcount{
+    display:none;
 }

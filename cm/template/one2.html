@@ -54,31 +54,28 @@
             <span class="date">on {{ mdo.date|date:"m-j-Y" }}</span>
             <div class="content">{{ mdo.content|linebreaks }}</div>
             <div class="listtag"> {% for t in mdo.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div> 
-        </div>
-{% endfor %}
-{% if u %}
-        <div>
-            <form action="/comment/" method="post">
-                <textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea>
-                <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/><br>
-                <input type="submit" value="Comment"><br>
-                <input type="checkbox" name="gravatar">User Gravatar
-            </form>
-            <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
-        </div>    
-{% else %}
-        <div>
-            <h3>Google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-        </div>
-{% endif %}
-{% for mdoo in mdo.post_comment %}
+        
+        {% if u %}
+        <form action="/comment/" method="post">
+            <textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea>
+            <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/><br>
+            <input type="submit" value="Comment"><br>
+            <input type="checkbox" name="gravatar">User Gravatar
+        </form>
+        <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
+        
+        {% else %}
+        <h3>plase login you google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+        {% endif %}
+        
+        {% for mdoo in mdo.post_comment %}
         <div>
             <img src='{{ mdoo.image }}' alt="guest" />
             <span>{{ mdoo.comment|escape }}</span><br>
             <span>{{ mdoo.date|date:"m-j-Y" }}</span>
-            <span>{{ mdoo.author|cut:"@"  }}</span>
+            <span>{{ mdoo.author|cut:"@"  }}</span>{% endfor %}
         </div>
-{% endfor %}
+        </div>{% endfor %}
     </div>    
 {% endblock %}
 
