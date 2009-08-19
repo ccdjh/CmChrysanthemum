@@ -49,7 +49,7 @@
 {% for mdo in modelDocOne %}
         <div class="doc">
             <div id="commentcount"><a href="#">{{ mdo.commentcount }}</a></div> 
-            <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdo.title }}</a></h1></div>
+            <div class="title"><h1><a href="/doc/{{ mdo.idc }}/{{ mdo.title }}/">{{ mdo.title }}</a></h1></div>
             <span class="author">{% if mdo.author %}  Posted by <a href="#">{{ mdo.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
             <span class="date">on {{ mdo.date|date:"m-j-Y" }}</span>
             <div class="content">{{ mdo.content|linebreaks }}</div>
@@ -59,8 +59,8 @@
 {% if u %}
         <div>
             <form action="/comment/" method="post">
-                <textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea>
-                <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/><br>
+                <textarea name="content" rows="3" cols="60">Ccdjh.Marx</textarea>
+                <input type="hidden" name="commentIdc" value="{% for mdo in modelDocOne %}{{ mdo.idc }}{% endfor %}"/><br>
                 <input type="submit" value="Comment"><br>
                 <input type="checkbox" name="gravatar">User Gravatar
             </form>
@@ -71,6 +71,7 @@
             <h3>Google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
         </div>
 {% endif %}
+{% for mdo in modelDocOne %}
 {% for mdoo in mdo.post_comment %}
         <div>
             <img src='{{ mdoo.image }}' alt="guest" />
@@ -78,6 +79,7 @@
             <span>{{ mdoo.date|date:"m-j-Y" }}</span>
             <span>{{ mdoo.author|cut:"@"  }}</span>
         </div>
+{% endfor %}
 {% endfor %}
     </div>    
 {% endblock %}
