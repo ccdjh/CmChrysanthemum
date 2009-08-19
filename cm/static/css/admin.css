@@ -1,0 +1,41 @@
+.vv {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+background-color: #EFEFCF;
+padding: 2px;
+text-align: left;
+}
+.vvv a:hover {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+background-color: red;
+padding: 2px;
+text-align: left;
+color:#fff;
+}
+
+.vvvv {
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+background-color: rgb(227,204,189);
+padding: 3px;
+text-align: left;
+color:#000;
+}
+.vvvvv {
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+background-color: rgb(121,192,206);
+padding: 3px;
+text-align: left;
+color:#000;
+}
+.vvvvvv {
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+background-color: rgb(205,212,138);
+padding: 3px;
+text-align: left;
+color:#000;
+width:100px;
+}

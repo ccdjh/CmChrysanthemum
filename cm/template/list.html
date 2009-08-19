@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block title %}The current time{% endblock %}
-{% block content %}
+{% block admin %}
 <form action="/admin/doclistreceive/" method="post">
     <input type="text" name="linkname">name
     <input type="submit" value="Sign Guestbook">
 </form>
 {% for li in link %}
 <div>
-    <span>{{ li.name }}</span><a href="/admin/deldoclist/{{ li.idc }}/">Del</a>
+    <span>{{ li.name }}</span><span class="vvv"><a class="vv" href="/admin/deldoclist/{{ li.idc }}/">Del</a></span>
     <form action="/admin/doclistreceivetwo/" method="post">
         <input type="text" name="linkname">name
         <input type="text" name="link">Link
@@ -22,18 +22,19 @@
 </div>
     <hr>
 {% endfor %}
-<h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-<h3><a href="/">back main</a></h3>
-<hr>
-<hr>
+<h3 class="vvvvvv"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+<h3 class="vvvvvv"><a href="/">back main</a></h3>
+<h3 class="vvvvvv"><a href="/admin/about/">About Me</a></h3>
+<h3 class="vvvvvv"><a href="/admin/">Admin</a></h3>
 <hr>
 {% for co in comment %}
-<div>
-    <span>{{ co.title }}</span>
-    <span><a href="/doc/{{ co.idc }}/">View</a></span>|<span><a href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
-</div>------>>
+<div class="vvv">
+    <span class="vvvvv">{{ co.title }}</span>
+    <span><a class="vv" href="/doc/{{ co.idc }}/">View</a></span>|<span><a class="vv" href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a class="vv" href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
+</div>
+    <br>
     {% for mdoo in co.post_comment %}|
-    <span>{{ mdoo.comment }}  <a href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
+    <span class="vvvv">{{ mdoo.comment }} </span><span class="vvv"> <a class="vv" href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
     {% endfor %}
     <hr>
     {% endfor %}

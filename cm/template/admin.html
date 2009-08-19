@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{% block title %}The current time{% endblock %}
-{% block content %}
+{% block title %}Admin{% endblock %}
+{% block admin %}
 <form action="/admin/docreceive/" method="post">
   <input type="text" name="title"  class="inputtitle">Title 
   <div><textarea name="content" rows="18" cols="70"></textarea></div>
   <input type="text" name="tags">Tags
   <input type="submit" value="Sign Guestbook">
 </form>
-<h3><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-<h3><a href="/">back main</a></h3>
-<h3><a href="/admin/doclist/">Doc List</a></h3>
-<h3><a href="/admin/about/">About Me</a></h3>
+<h3 class="vvvvvv"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+<h3 class="vvvvvv"><a href="/">back main</a></h3>
+<h3 class="vvvvvv"><a href="/admin/doclist/">Doc List</a></h3>
+<h3 class="vvvvvv"><a href="/admin/about/">About Me</a></h3>
 {% for d in doc %}
-  <a href="/doc/{{ d.idc }}/">{{ d.title }}</a>
-  <a href="/admin/deldoc/{{ d.idc }}/">Del --- {{ d.title }}</a>
+  <a class="vvvvv" href="/doc/{{ d.idc }}/">{{ d.title }}</a>
+  <span class="vvv"><a class="vv" href="/admin/deldoc/{{ d.idc }}/">Del --- {{ d.title }}</a></span>
   <hr>
 {% endfor %}
 {% endblock %} 

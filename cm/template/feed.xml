@@ -1,15 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>	
+<?xml version="1.0" encoding="utf-8" ?> 
 <rss version="2.0"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:content="http://purl.org/rss/1.0/modules/content/"> 
-        
-{% for f in feed %}
-    <channel> 
-        <date>{{ f.date }}</date>
-        <title>{{ f.title }}</title>
-        <content>{{ f.content }}</content>
-        <commentcount>{{ f.commentcount }}</commentcount>
-    </channel>
-{% endfor %}        
-
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+{% for f in feed %}  
+	<channel> 
+		<title>Chtysanthemum</title> 
+		<link>http://www.google.com/</link> 
+		<description></description> 
+		<category>Ccdjh.Marx</category> 
+		<language>en</language> 
+		<item> 
+			<title>{{ f.title }}</title> 
+			<link></link> 
+			<comments>{{ f.commentcount }}</comments> 
+			<dc:creator>{{ f.date }}</dc:creator> 
+			<author>{{ f.author }}</author> 
+			<description> 
+			{{ f.content }}
+			</description> 
+			<pubDate>{{ f.date }}</pubDate> 
+			<guid></guid> 
+		</item> 
+	</channel>
+{% endfor %}      
 </rss>
+  
