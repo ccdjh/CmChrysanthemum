@@ -2,7 +2,7 @@
 {% block title %}The current time{% endblock %}
 {% block content %}
 {% if about %}
-
+{% for ab in about %}
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
     <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
     <div><input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description</div>
@@ -11,6 +11,7 @@
     <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea>about</div>
     <input type="submit" value="Talk About You">
 </form>
+{% endfor %}
 {% else %}
 {% for ab in about %}
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
