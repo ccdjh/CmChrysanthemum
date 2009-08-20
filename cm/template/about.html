@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}The current time{% endblock %}
 {% block content %}
-{% for ab in about %}
 {% if about %}
 
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
@@ -13,6 +12,7 @@
     <input type="submit" value="Talk About You">
 </form>
 {% else %}
+{% for ab in about %}
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
     <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
     <div><input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description</div>
@@ -21,8 +21,9 @@
     <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea>about</div>
     <input type="submit" value="Talk About You">
 </form>
+{% endfor %}
 {% endif %}
-
+{% for ab in about %}
     <h3 class="vvvvvv"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
     <h3 class="vvvvvv"><a href="/">back main</a></h3>
     <h3 class="vvvvvv"><a href="/admin/doclist/">Doc List</a></h3>
@@ -31,6 +32,6 @@
     <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
     <blockquote>{{ ab.title }} and {{ ab.description }}</blockquote>
     <div><img src='/image/{{ ab.idc }}/'></img></div>
-    <hr>     
+    <hr>
 {% endfor %}
 {% endblock %} 
