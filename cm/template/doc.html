@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{% for p in pro %}{{ p.title }} {% endfor %}{% endblock %}
-
+{% block theme %}{% for t in theme %}{{ t.name }}{% endfor %}{% endblock %}
 {% block header %}
     <div id="header"> {% for p in pro %}
 	<h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
@@ -69,6 +69,8 @@
 {% endblock %}
 
 {% block footer %}
-    <div id="footer"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
+{% for t in theme %}
+    <div id="footer"> {{ t.name }} theme designed by <a href="{{ t.link }}">{{ t.author }}</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
     </div>
+{% endfor %}
 {% endblock %}

@@ -24,6 +24,11 @@ from cm.view.postControl import AboutReceive
 from cm.view.htmlConrtol import About
 from cm.view.getControl import AboutImageReceive
 
+from cm.view.htmlConrtol import DocTheme
+from cm.view.postControl import DocThemeReceive 
+from cm.view.getControl import ThemeImageReceive
+from cm.view.postControl import ThemeReceive
+
 from cm.view.htmlConrtol import Feed
 
 application = webapp.WSGIApplication([
@@ -31,6 +36,9 @@ application = webapp.WSGIApplication([
                                         (r'/feed/', Feed),
                                         (r'/p/(?P<page>[0-9]{1,9})/', Main),
                                         (r'/admin/', AdminPost),
+                                        (r'/admin/doctheme/', DocTheme),
+                                        (r'/admin/docthemereceive/', DocThemeReceive ),
+                                        (r'/admin/themereceive/', ThemeReceive ),
                                         (r'/admin/docreceive/', DocPostReceive),
                                         (r'/admin/doclist/', DocList),
                                         (r'/admin/deldoclist/(?P<idc>[0-9]{1,9})/', DelListReceive),
@@ -38,6 +46,7 @@ application = webapp.WSGIApplication([
                                         (r'/admin/aboutreceive/', AboutReceive),
                                         (r'/admin/about/', About),
                                         (r'/image/(?P<idc>[0-9]{1,9})/', AboutImageReceive),
+                                        (r'/imagetheme/(?P<idc>[0-9]{1,9})/', ThemeImageReceive),
                                         (r'/admin/doclistreceive/', DocListReceive),
                                         (r'/doc/(?P<idc>[0-9]{1,9})/(?P<title>[^/]+)/', DocOneReceive),
                                         (r'/admin/deldoc/(?P<idc>[0-9]{1,9})/', DelDocReceive),

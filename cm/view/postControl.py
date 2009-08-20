@@ -15,7 +15,8 @@ from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import ListYou
 from cm.model.databaseModel import ListYouTwo
 from cm.model.databaseModel import Profile
-
+from cm.model.databaseModel import Theme
+from cm.model.databaseModel import ThemeTwo
 
 
 from cm.view.baseControl import CcdjhMarx
@@ -128,7 +129,7 @@ class AboutReceive(CcdjhMarx):
       modelProfileb.about = self.request.get("about")
       modelProfileb.title = self.request.get("title")
       modelProfileb.description = self.request.get("description")
-      imgb = self.request.get("img")
+      imgb = images.resize(self.request.get("img"),46,46)
       modelProfileb.avatar = db.Blob(imgb)
       modelProfileb.put()
       m=modelProfileb.key().id()
@@ -146,3 +147,36 @@ class DocPutReceive(CcdjhMarx):
     modelDocPost.put()
     self.redirect("/admin/doclist/")
     
+class DocThemeReceive(CcdjhMarx):
+  def post(self):
+    c=Theme()
+    c.link = self.request.get("link")
+    c.name = self.request.get("name")
+    c.author = self.request.get("author")
+    i = self.request.get("img")
+    c.avatar = db.Blob(i)
+    c.put()
+    m=c.key().id()
+    c.idc = m
+    c.put()
+    self.redirect(self.request.referer)
+    
+class ThemeReceive(CcdjhMarx):
+  def post(self):
+    g = self.request.get("th")
+    i=int(g)
+    c=Theme.get_by_id(i)
+    o=ThemeTwo.all().get()
+    if o is not None:
+      o.link=c.link
+      o.link=c.link
+      o.name=c.name
+      o.author=c.author
+      o.put()
+    else:  
+      m=ThemeTwo()
+      m.link=c.link
+      m.name=c.name
+      m.author=c.author
+      m.put()
+    self.redirect(self.request.referer)

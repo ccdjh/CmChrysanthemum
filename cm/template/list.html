@@ -26,15 +26,16 @@
 <h3 class="vvvvvv"><a href="/">back main</a></h3>
 <h3 class="vvvvvv"><a href="/admin/about/">About Me</a></h3>
 <h3 class="vvvvvv"><a href="/admin/">Admin</a></h3>
+<h3 class="vvvvvv"><a href="/admin/doctheme/">Theme</a></h3>
 <hr>
 {% for co in comment %}
 <div class="vvv">
     <span class="vvvvv">{{ co.title }}</span>
-    <span><a class="vv" href="/doc/{{ co.idc }}/">View</a></span>|<span><a class="vv" href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a class="vv" href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
+    <span><a class="vv" href="/doc/{{ co.idc }}/{{ co.title }}/">View</a></span>|<span><a class="vv" href="/admin/deldoc/{{ co.idc }}/">Del </a></span>|<span><a class="vv" href="/admin/putdoc/{{ co.idc }}/">Put </a></span>
 </div>
     <br>
     {% for mdoo in co.post_comment %}|
-    <span class="vvvv">{{ mdoo.comment }} </span><span class="vvv"> <a class="vv" href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
+    <span class="vvvv">{{ mdoo.comment|escape }} </span><span class="vvv"> <a class="vv" href="/admin/delcomment/{{ mdoo.idc }}/{{ co.idc }}/">Del </a></span>
     {% endfor %}
     <hr>
     {% endfor %}

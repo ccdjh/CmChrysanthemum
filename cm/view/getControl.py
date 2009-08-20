@@ -12,6 +12,8 @@ from cm.model.databaseModel import DocTag
 from cm.model.databaseModel import Profile
 from cm.model.databaseModel import ListYou
 from cm.model.databaseModel import DocComment
+from cm.model.databaseModel import Theme
+from cm.model.databaseModel import ThemeTwo
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -28,7 +30,8 @@ class Main(CcdjhMarx):
     tagList=DocTag.all()
     link=ListYou.all()
     pro=Profile.all()
-    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,'tagList': tagList,'link': link,'pro': pro,}
+    theme=ThemeTwo.all()
+    template_values = {'modelDocPost': modelDocPost,'listNeed': listNeed,'mm': mm,'tagList': tagList,'link': link,'pro': pro,'theme': theme,}
     self.htmlRenderCM('../template/doc.html',template_values)
 
 class DocOneReceive(CcdjhMarx):
@@ -43,8 +46,9 @@ class DocOneReceive(CcdjhMarx):
     pro=Profile.all()
     tagList=DocTag.all()
     link=ListYou.all()
+    theme=ThemeTwo.all()
     listNeed=self.listNeedCM()
-    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,}
+    template_values = {'modelDocOne': modelDocOne,'u': u,'listNeed': listNeed,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,'theme': theme,}
     self.htmlRenderCM('../template/one.html',template_values)
  
 class DocTagReceive(CcdjhMarx):
@@ -62,8 +66,9 @@ class DocTagReceive(CcdjhMarx):
     pro=Profile.all()
     tagList=DocTag.all()
     link=ListYou.all()
+    theme=ThemeTwo.all()
     listNeed=self.listNeedCM()
-    template_values = {'modelDocTag': modelDocTag,'mm': mm,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,}
+    template_values = {'modelDocTag': modelDocTag,'mm': mm,'pro': pro,'tagList': tagList,'link': link,'listNeed': listNeed,'theme': theme,}
     self.htmlRenderCM('../template/tag.html',template_values)
     
 class AboutImageReceive(CcdjhMarx):
@@ -72,7 +77,14 @@ class AboutImageReceive(CcdjhMarx):
     photo=Profile.get_by_id(g)
     self.response.headers['Content-Type'] = 'image/jpeg'
     self.response.out.write(photo.avatar)
-    
+
+class ThemeImageReceive(CcdjhMarx):
+  def get(self,idc):    
+    g =int(idc)
+    photo=Theme.get_by_id(g)
+    self.response.headers['Content-Type'] = 'image/jpeg'
+    self.response.out.write(photo.avatar)
+
 class DelListReceive(CcdjhMarx):
   def get(self,idc):    
     g =int(idc)

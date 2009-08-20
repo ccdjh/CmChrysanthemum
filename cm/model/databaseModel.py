@@ -42,3 +42,16 @@ class ListYouTwo(db.Model):
       comment = db.StringProperty(multiline=False)
       link = db.LinkProperty()
       idc = db.IntegerProperty()
+      
+class Theme(db.Model):
+    link = db.LinkProperty()
+    name = db.StringProperty(multiline=False)
+    author = db.StringProperty(multiline=False)
+    avatar = db.BlobProperty()
+    idc = db.IntegerProperty()
+    
+class ThemeTwo(db.Model):
+    link = db.LinkProperty()
+    name = db.StringProperty(multiline=False)
+    author = db.StringProperty(multiline=False)
+    idc = db.IntegerProperty()
