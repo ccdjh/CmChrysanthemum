@@ -38,4 +38,25 @@ padding: 3px;
 text-align: left;
 color:#fff;
 width:100px;
+display:inline-block;
+}
+#themetwo .themelist{
+    display: inline-block;
+    background-color:#999;
+    margin-right:10px;
+    margin-bottom:12px;
+}
+#admin{
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background-color: rgb(236,214,202);
+    padding: 3px;
+}
+.cdel{
+    display: inline-block;
+    margin-right:3px;
+    margin-top:8px;
 }

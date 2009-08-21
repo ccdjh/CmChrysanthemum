@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}The current time{% endblock %}
-{% block content %}
+{% block admin %}
+<div id="admin">
 {% if about %}
 {% for ab in about %}
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
@@ -30,9 +31,11 @@
     <h3 class="vvvvvv"><a href="/admin/doclist/">Doc List</a></h3>
     <h3 class="vvvvvv"><a href="/admin/">Admin</a></h3>
     <h3 class="vvvvvv"><a href="/admin/doctheme/">Theme</a></h3>
-    <blockquote>{{ ab.name }} and {{ ab.about }}</blockquote>
-    <blockquote>{{ ab.title }} and {{ ab.description }}</blockquote>
+    <hr>
+    <span class="vvvvv">{{ ab.name }}</span> and <span class="vvvv">{{ ab.about }}</span>
+    <div>{{ ab.title }} and {{ ab.description }}</div>
     <div><img src='/image/{{ ab.idc }}/'></img></div>
     <hr>
 {% endfor %}
+</div>
 {% endblock %} 
