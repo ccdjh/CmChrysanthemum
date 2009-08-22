@@ -60,19 +60,15 @@ class DocCommentReceive(CcdjhMarx):
     q=DocPost.get_by_id(cc)
     comment = DocComment(contact=q)
     comment.comment = self.request.get("content")
-    gravatar = self.request.get("gravatar")
+    #gravatar = self.request.get("gravatar")
     comment.postid = cc
     if users.get_current_user():
       com= users.get_current_user()
       comm=com.email()
       comment.author = db.Email(comm)
-    default = "/static/homsar.jpg"
+    default = "http://chrysanthemumcm.appspot.com/static/image/gravatars.png"
     size=40
-    if gravatar:
-      comment.image=self.gravatarCM(comm,default,size)
-    else:
-      commm="yx0662@gmail.com"
-      comment.image=self.gravatarCM(commm,default,size)
+    comment.image=self.gravatarCM(comm,default,size)
     comment.put()
     count=DocPost.all().filter('idc = ', cc).get()
     count.commentcount += 1

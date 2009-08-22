@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{% for mdo in modelDocOne %}{{ mdo.title }}{% endfor %}{% endblock %}
-
+{% block theme %}{% for t in theme %}{{ t.name }}{% endfor %}{% endblock %}
 {% block header %}
     <div id="pheader"> {% for p in pro %}
         <h1 id="blog_title"><a href="/" class="w">{{ p.title }} </a></h1> 
@@ -49,37 +49,44 @@
 {% for mdo in modelDocOne %}
         <div class="doc">
             <div id="commentcount"><a href="#">{{ mdo.commentcount }}</a></div> 
-            <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdo.title }}</a></h1></div>
+            <div class="title"><h1><a href="/doc/{{ mdo.idc }}/{{ mdo.title }}/">{{ mdo.title }}</a></h1></div>
             <span class="author">{% if mdo.author %}  Posted by <a href="#">{{ mdo.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span>   
             <span class="date">on {{ mdo.date|date:"m-j-Y" }}</span>
             <div class="content">{{ mdo.content|linebreaks }}</div>
             <div class="listtag"> {% for t in mdo.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div> 
-        
-        {% if u %}
-        <form action="/comment/" method="post">
-            <textarea name="content" rows="3" cols="60">Ccdjh.Marx and Y.gigi</textarea>
-            <input type="hidden" name="commentIdc" value="{{ mdo.idc }}"/><br>
-            <input type="submit" value="Comment"><br>
-            <input type="checkbox" name="gravatar">User Gravatar
-        </form>
-        <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
-        
-        {% else %}
-        <h3>plase login you google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
-        {% endif %}
-        
-        {% for mdoo in mdo.post_comment %}
+        </div>
+{% endfor %}
+{% if u %}
+        <div>
+            <form action="/comment/" method="post">
+                <textarea name="content" rows="3" cols="60">Ccdjh.Marx</textarea>
+                <input type="hidden" name="commentIdc" value="{% for mdo in modelDocOne %}{{ mdo.idc }}{% endfor %}"/><br>
+                <input type="submit" value="Comment"><br>
+                <input type="checkbox" name="gravatar">User Gravatar
+            </form>
+            <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a>
+        </div>    
+{% else %}
+        <div>
+            <h3>Google <a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
+        </div>
+{% endif %}
+{% for mdo in modelDocOne %}
+{% for mdoo in mdo.post_comment %}
         <div>
             <img src='{{ mdoo.image }}' alt="guest" />
             <span>{{ mdoo.comment|escape }}</span><br>
             <span>{{ mdoo.date|date:"m-j-Y" }}</span>
-            <span>{{ mdoo.author|cut:"@"  }}</span>{% endfor %}
+            <span>{{ mdoo.author|cut:"@"  }}</span>
         </div>
-        </div>{% endfor %}
+{% endfor %}
+{% endfor %}
     </div>    
 {% endblock %}
 
 {% block footer %}
-    <div id="pfooter"> Dust theme designed by <a href="http://www.livid.cn/">Livid</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
+{% for t in theme %}
+    <div id="pfooter"> {{ t.name }} theme designed by <a href="{{ t.link }}">{{ t.author }}</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
     </div>
+{% endfor %}
 {% endblock %}
