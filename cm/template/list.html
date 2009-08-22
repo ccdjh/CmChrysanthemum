@@ -17,7 +17,7 @@
     </form>
     <div>
     {% for lit in li.list_you %}
-        <a href="{{ lit.link }}">{{ lit.comment }}</a>
+        <a href="{{ lit.link }}">{{ lit.comment }}</a>|<span><a class="vv" href="/admin/deldoclisttwo/{{ lit.idc }}/">Del </a></span>
     {% endfor %}
     </div>
 </div>

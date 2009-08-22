@@ -14,6 +14,7 @@ from cm.model.databaseModel import ListYou
 from cm.model.databaseModel import DocComment
 from cm.model.databaseModel import Theme
 from cm.model.databaseModel import ThemeTwo
+from cm.model.databaseModel import ListYouTwo
 
 class Main(CcdjhMarx):
   def get(self,page=1):
@@ -118,3 +119,9 @@ class DelCommentReceive(CcdjhMarx):
     yy.put()
     self.redirect(self.request.referer)
     
+class DelListTwoReceive(CcdjhMarx):
+  def get(self,idc):    
+    g =int(idc)
+    y=ListYouTwo.get_by_id(g)
+    db.delete(y)
+    self.redirect(self.request.referer)

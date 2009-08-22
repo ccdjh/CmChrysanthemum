@@ -164,11 +164,123 @@ class DocThemeReceive(CcdjhMarx):
 class ThemeReceive(CcdjhMarx):
   def post(self):
     g = self.request.get("th")
+    o=ThemeTwo.all().get()
+    if o is not None:
+      if g=="white":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="white"
+        o.author="livid"
+        o.put()
+      elif g=="purple":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="purple"
+        o.author="livid"
+        o.put()
+      elif g=="orange":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="orange"
+        o.author="livid"
+        o.put()
+      elif g=="night":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="night"
+        o.author="livid"
+        o.put()
+      elif g=="dust":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="dust"
+        o.author="livid"
+        o.put()
+      elif g=="mour":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="mour"
+        o.author="livid"
+        o.put()
+      elif g=="light":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="light"
+        o.author="livid"
+        o.put()
+      elif g=="grid":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="grid"
+        o.author="livid"
+        o.put()
+      elif g=="cloud":
+        o.link=db.Link("http://www.v2ex.com/")
+        o.name="cloud"
+        o.author="livid"
+        o.put()
+      else:
+        i=int(g)
+        c=Theme.get_by_id(i)
+        o.link=c.link
+        o.name=c.name
+        o.author=c.author
+        o.put()
+    else:
+      m=ThemeTwo()
+      if g=="white":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="white"
+        m.author="livid"
+        m.put()
+      elif g=="purple":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="purple"
+        m.author="livid"
+        m.put()
+      elif g=="orange":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="orange"
+        m.author="livid"
+        m.put()
+      elif g=="night":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="night"
+        m.author="livid"
+        m.put()
+      elif g=="dust":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="dust"
+        m.author="livid"
+        m.put()
+      elif g=="mour":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="mour"
+        m.author="livid"
+        m.put()
+      elif g=="light":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="light"
+        m.author="livid"
+        m.put()
+      elif g=="grid":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="grid"
+        m.author="livid"
+        m.put()
+      elif g=="cloud":
+        m.link=db.Link("http://www.v2ex.com/")
+        m.name="cloud"
+        m.author="livid"
+        m.put()
+      else:
+        i=int(g)
+        c=Theme.get_by_id(i)
+        m.link=c.link
+        m.name=c.name
+        m.author=c.author
+        m.put()
+    self.redirect(self.request.referer)
+    
+class ThemeReceiveb(CcdjhMarx): #old
+  def post(self):
+    g = self.request.get("th")
     i=int(g)
     c=Theme.get_by_id(i)
     o=ThemeTwo.all().get()
     if o is not None:
-      o.link=c.link
       o.link=c.link
       o.name=c.name
       o.author=c.author

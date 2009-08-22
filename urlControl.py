@@ -19,6 +19,7 @@ from cm.view.postControl import DocListReceive
 from cm.view.htmlConrtol import DocList
 from cm.view.getControl import DelListReceive
 from cm.view.postControl import DocListReceiveTwo
+from cm.view.getControl import DelListTwoReceive
 
 from cm.view.postControl import AboutReceive
 from cm.view.htmlConrtol import About
@@ -42,6 +43,7 @@ application = webapp.WSGIApplication([
                                         (r'/admin/docreceive/', DocPostReceive),
                                         (r'/admin/doclist/', DocList),
                                         (r'/admin/deldoclist/(?P<idc>[0-9]{1,9})/', DelListReceive),
+                                        (r'/admin/deldoclisttwo/(?P<idc>[0-9]{1,9})/', DelListTwoReceive),
                                         (r'/admin/doclistreceivetwo/', DocListReceiveTwo),
                                         (r'/admin/aboutreceive/', AboutReceive),
                                         (r'/admin/about/', About),

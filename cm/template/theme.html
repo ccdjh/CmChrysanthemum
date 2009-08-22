@@ -13,7 +13,61 @@
 <div>
     <hr>
 <div id="themetwo">  
-<form action="/admin/themereceive/" method="post">    
+<form action="/admin/themereceive/" method="post">
+    <div class="themelist">
+        <div><img src='/static/image/demo/white.jpg'></img></div>
+        <div><span class="vvvvv">Theme:</span>white</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="white"> white-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/purple.jpg'></img></div>
+        <div><span class="vvvvv">Theme:</span>purple</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="purple"> purple-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/orange.jpg'></img></div>
+        <div><span class="vvvvv">Theme:</span>orange</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="orange"> orange-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/night.jpg'></img></div>
+        <div><span class="vvvvv">Theme:</span>night</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="night"> night-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/dust.jpg'></img></div>
+        <div><span class="vvvvv">Theme:</span>dust</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="dust"> dust-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/mour.png'></img></div>
+        <div><span class="vvvvv">Theme:</span>mour</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="mour"> mour-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/light.png'></img></div>
+        <div><span class="vvvvv">Theme:</span>light</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="light"> light-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/grid.png'></img></div>
+        <div><span class="vvvvv">Theme:</span>grid</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="grid"> grid-</div>
+    </div>
+    <div class="themelist">
+        <div><img src='/static/image/demo/cloud.png'></img></div>
+        <div><span class="vvvvv">Theme:</span>cloud</div>
+        <div><span class="vvvv">Author:</span><a href="http://www.livid.cn">livid</a></div>
+        <div><input type="radio" name="th" value="cloud"> cloud-</div>
+    </div>
     {% for t in y %}
     <div class="themelist">
         <div><img src='/imagetheme/{{ t.idc }}/'></img></div>
