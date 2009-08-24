@@ -2,36 +2,24 @@
 {% block title %}The current time{% endblock %}
 {% block admin %}
 <div id="admin">
-{% if about %}
-{% for ab in about %}
+
 <form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
-    <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
-    <div><input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description</div>
-    <input type="text" name="name" value="{{ ab.name }}" class="inputtitle">name
+    <input type="text" name="title" value="{% for ab in about %}{{ ab.title }}{% endfor %}" class="inputtitle">title
+    <div><input type="text" name="description" value="{% for ab in about %}{{ ab.description }}{% endfor %}" class="inputtitle">description</div>
+    <input type="text" name="name" value="{% for ab in about %}{{ ab.name }}{% endfor %}" class="inputtitle">name
     <div><input type="file" name="img"/>image</div>
-    <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea>about</div>
+    <div><textarea name="about" rows="3" cols="60">{% for ab in about %}{{ ab.about }}{% endfor %}</textarea>about</div>
     <input type="submit" value="Talk About You">
 </form>
-{% endfor %}
-{% else %}
-{% for ab in about %}
-<form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
-    <input type="text" name="title" value="{{ ab.title }}" class="inputtitle">title
-    <div><input type="text" name="description" value="{{ ab.description }}" class="inputtitle">description</div>
-    <input type="text" name="name" value="{{ ab.name }}" class="inputtitle">name
-    <div><input type="file" name="img"/>image</div>
-    <div><textarea name="about" rows="3" cols="60">{{ ab.about }}</textarea>about</div>
-    <input type="submit" value="Talk About You">
-</form>
-{% endfor %}
-{% endif %}
-{% for ab in about %}
+
+
     <h3 class="vvvvvv"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>
     <h3 class="vvvvvv"><a href="/">back main</a></h3>
     <h3 class="vvvvvv"><a href="/admin/doclist/">Doc List</a></h3>
     <h3 class="vvvvvv"><a href="/admin/">Admin</a></h3>
     <h3 class="vvvvvv"><a href="/admin/doctheme/">Theme</a></h3>
     <hr>
+{% for ab in about %}
     <span class="vvvvv">{{ ab.name }}</span> and <span class="vvvv">{{ ab.about }}</span>
     <div>{{ ab.title }} and {{ ab.description }}</div>
     <div><img src='/image/{{ ab.idc }}/'></img></div>
