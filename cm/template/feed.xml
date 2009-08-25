@@ -3,23 +3,21 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
 {% for f in feed %}  
-	<channel> 
-		<title>Chtysanthemum</title> 
-		<link>http://www.google.com/</link> 
-		<description></description> 
-		<category>Ccdjh.Marx</category> 
-		<language>en</language> 
+	<channel> {% for p in pro %}
+		<title>{{ p.title }}</title> 
+		<link>{{ myurl }}</link> 
+		<description>{{ p.description }} </description> 
+		<category>{{ p.about }}</category> 
+		<language>en</language> {% endfor %}
 		<item> 
 			<title>{{ f.title }}</title> 
-			<link></link> 
+			<link>{{ myurl }}/{{ f.idc }}/{{ f.title }}/</link>
+                        <guid>{{ myurl }}/doc/{{ f.idc }}/{{ f.title }}/</guid> 
 			<comments>{{ f.commentcount }}</comments> 
-			<dc:creator>{{ f.date }}</dc:creator> 
+			<dc:creator>{{ f.date|date:"m-j-Y" }}</dc:creator> 
 			<author>{{ f.author }}</author> 
-			<description> 
-			{{ f.content }}
-			</description> 
-			<pubDate>{{ f.date }}</pubDate> 
-			<guid></guid> 
+			<description>{{ f.content|linebreaks }}</description> 
+			<pubDate>{{ f.date|date:"m-j-Y" }}</pubDate> 
 		</item> 
 	</channel>
 {% endfor %}      

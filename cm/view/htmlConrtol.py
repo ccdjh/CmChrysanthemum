@@ -35,7 +35,9 @@ class About(CcdjhMarx):
 class Feed(CcdjhMarx):
   def get(self):
     feed=DocPost.all().order('-date')
-    template_values = {'feed': feed,}
+    myurl=self.request.host_url
+    pro=Profile.all()
+    template_values = {'feed': feed,'myurl': myurl,'pro': pro,}
     self.htmlRenderCM('../template/feed.xml',template_values)
     
 class DocPut(CcdjhMarx):
