@@ -66,7 +66,8 @@ class DocCommentReceive(CcdjhMarx):
       com= users.get_current_user()
       comm=com.email()
       comment.author = db.Email(comm)
-    default = "http://chrysanthemumcm.appspot.com/static/image/gravatars.png"
+    #myurl=self.request.host_url
+    default = self.request.host_url+"/static/image/gravatars.jpg"
     size=40
     comment.image=self.gravatarCM(comm,default,size)
     comment.put()
