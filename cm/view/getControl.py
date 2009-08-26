@@ -5,6 +5,7 @@ from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import images
 from google.appengine.api import users
+from google.appengine.api import memcache
 
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import DocPost
@@ -16,11 +17,16 @@ from cm.model.databaseModel import Theme
 from cm.model.databaseModel import ThemeTwo
 from cm.model.databaseModel import ListYouTwo
 
+from cm.view.memcacheControl import DocPostM
+
+
 class Main(CcdjhMarx):
   def get(self,page=1):
     page=int(page)
     limit=4
-    modelDocPost_query = DocPost.all().order('-date')
+    #modelDocPost_query = DocPost.all().order('-date')
+    p=DocPostM()
+    modelDocPost_query = p.get_docpost() 
     count=modelDocPost_query.count()
     if (page-1)*limit>count:
       self.redirect("/error/")

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from google.appengine.ext import db
 from google.appengine.ext import webapp
+from google.appengine.api import memcache
 
 from cm.view.baseControl import CcdjhMarx
 from cm.model.databaseModel import ListYou
@@ -9,6 +10,9 @@ from cm.model.databaseModel import DocPost
 from cm.model.databaseModel import DocComment
 from cm.model.databaseModel import Theme
 from cm.model.databaseModel import ThemeTwo
+
+from cm.view.memcacheControl import ProfileM
+
 
 class AdminPost(CcdjhMarx):
   def get(self):
@@ -28,6 +32,8 @@ class DocList(CcdjhMarx):
 class About(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
+    #p=ProfileM()
+    #about = p.get_profile() 
     about=Profile.all()
     template_values = {'listNeed': listNeed,'about': about,}
     self.htmlRenderCM('../template/about.html',template_values)

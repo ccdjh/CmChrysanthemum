@@ -18,7 +18,7 @@ from cm.model.databaseModel import Profile
 from cm.model.databaseModel import Theme
 from cm.model.databaseModel import ThemeTwo
 
-
+from cm.view.memcacheControl import ProfileM
 from cm.view.baseControl import CcdjhMarx
 
 
@@ -109,13 +109,13 @@ class AboutReceive(CcdjhMarx):
   def post(self):
     modelProfile=Profile.all().get()
     if modelProfile is not None:
-    #modelProfile=Profile()
       modelProfile.name = self.request.get("name")
       modelProfile.about = self.request.get("about")
       modelProfile.title = self.request.get("title")
       modelProfile.description = self.request.get("description")
-      imgb =  images.resize(self.request.get("img"),46,46)
-      modelProfile.avatar = db.Blob(imgb)
+      
+      #imgb =  images.resize(self.request.get("img"),46,46)
+      modelProfile.avatar = db.Blob(self.request.get("img"))
       modelProfile.put()
       m=modelProfile.key().id()
       modelProfile.idc = m
@@ -126,8 +126,8 @@ class AboutReceive(CcdjhMarx):
       modelProfileb.about = self.request.get("about")
       modelProfileb.title = self.request.get("title")
       modelProfileb.description = self.request.get("description")
-      imgb = images.resize(self.request.get("img"),46,46)
-      modelProfileb.avatar = db.Blob(imgb)
+      #imgb = images.resize(self.request.get("img"),46,46)
+      modelProfileb.avatar = db.Blob(self.request.get("img"))
       modelProfileb.put()
       m=modelProfileb.key().id()
       modelProfileb.idc = m
