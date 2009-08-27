@@ -10,14 +10,14 @@ from cm.model.databaseModel import DocPost
 logging.getLogger().setLevel(logging.DEBUG)
 class  ProfileM():
     def get_profile(self):
-        greetings = memcache.get("greetings")
-        if greetings is not None:
-            return greetings
+        profiles = memcache.get("profiles")
+        if profiles is not None:
+            return profiles
         else:
-            greetings = self.render_profile()
-            if not memcache.add("greetings", greetings, 10):
+            profiles = self.render_profile()
+            if not memcache.add("profiles", profiles, 10):
                 logging.error("Memcache set failed.")
-            return greetings
+            return profiles
 
     def render_profile(self):
       results = Profile.all().get()
@@ -25,14 +25,14 @@ class  ProfileM():
     
 class  DocPostM():
     def get_docpost(self):
-        greetings = memcache.get("greetings")
-        if greetings is not None:
-            return greetings
+        docposts = memcache.get("docposts")
+        if docposts is not None:
+            return docposts
         else:
-            greetings = self.render_docpost()
-            if not memcache.add("greetings", greetings, 10):
+            docposts = self.render_docpost()
+            if not memcache.add("docposts", docposts, 10):
                 logging.error("Memcache set failed.")
-            return greetings
+            return docposts
 
     def render_docpost(self):
       results = DocPost.all().order('-date')

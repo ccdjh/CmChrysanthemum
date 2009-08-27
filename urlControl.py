@@ -42,6 +42,7 @@ application = webapp.WSGIApplication([
                                         (r'/admin/themereceive/', ThemeReceive ),
                                         (r'/admin/docreceive/', DocPostReceive),
                                         (r'/admin/doclist/', DocList),
+                                        (r'/admin/doclist/p/(?P<page>[0-9]{1,9})/', DocList),
                                         (r'/admin/deldoclist/(?P<idc>[0-9]{1,9})/', DelListReceive),
                                         (r'/admin/deldoclisttwo/(?P<idc>[0-9]{1,9})/', DelListTwoReceive),
                                         (r'/admin/doclistreceivetwo/', DocListReceiveTwo),

@@ -12,21 +12,30 @@ from cm.model.databaseModel import Theme
 from cm.model.databaseModel import ThemeTwo
 
 from cm.view.memcacheControl import ProfileM
-
+from cm.view.memcacheControl import DocPostM
 
 class AdminPost(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
-    doc=DocPost.all()
+    doc=DocPost.all().fetch(10)
     template_values = {'listNeed': listNeed,'doc': doc,}
     self.htmlRenderCM('../template/admin.html',template_values)
     
 class DocList(CcdjhMarx):
-  def get(self):
+  def get(self,page=1):
     listNeed=self.listNeedCM()
     link=ListYou.all()
-    comment=DocPost.all()
-    template_values = {'listNeed': listNeed,'link': link,'comment': comment,}
+    #comment=DocPost.all()
+    page=int(page)
+    limit=5
+    comment_query = DocPost.all().order('-date')
+    count=comment_query.count()
+    if (page-1)*limit>count:
+      self.redirect("/error/")
+    mm=self.navigationCM(page,count,limit)
+    of=(mm['current']-1)*limit
+    comment = comment_query.fetch(limit=limit, offset=of)
+    template_values = {'listNeed': listNeed,'link': link,'comment': comment,'mm': mm,}
     self.htmlRenderCM('../template/list.html',template_values)
     
 class About(CcdjhMarx):
@@ -40,7 +49,9 @@ class About(CcdjhMarx):
     
 class Feed(CcdjhMarx):
   def get(self):
-    feed=DocPost.all().order('-date')
+    p=DocPostM()
+    feed = p.get_docpost() 
+    #feed=DocPost.all().order('-date')
     myurl=self.request.host_url
     pro=Profile.all()
     template_values = {'feed': feed,'myurl': myurl,'pro': pro,}

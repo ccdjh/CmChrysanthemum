@@ -4,7 +4,7 @@
 <div id="admin">
 <form action="/admin/doclistreceive/" method="post">
     <input type="text" name="linkname">name
-    <input type="submit" value="Sign Guestbook">
+    <input type="submit" value="Publish One">
 </form>
 {% for li in link %}
 <div>
@@ -13,7 +13,7 @@
         <input type="text" name="linkname">name
         <input type="text" name="link">Link
         <input type="hidden" name="commentIdc" value="{{ li.idc }}"/>
-        <input type="submit" value="two list">
+        <input type="submit" value="Publish Two">
     </form>
     <div>
     {% for lit in li.list_you %}
@@ -40,5 +40,14 @@
     {% endfor %}
     <hr>
     {% endfor %}
-</div>
-{% endblock %} 
+
+{% if mm.previous or mm.next %}
+    <div id="docpage">
+	<div id="nav_post">{% if mm.previous %}
+	    <span class="navv_prev"><a href="/admin/doclist/p/{{mm.previous}}/" class="nav"><< Siguientes </a></span>{% endif %}{% if mm.next %}
+	    <span class="navv_next"><a href="/admin/doclist/p/{{mm.next}}/" class="nav">Anteriores>></a></span>{% endif %}
+	</div>
+    </div>{% endif %}
+
+</div>    
+{% endblock %}
