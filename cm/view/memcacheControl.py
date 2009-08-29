@@ -15,7 +15,7 @@ class  ProfileM():
             return profiles
         else:
             profiles = self.render_profile()
-            if not memcache.add("profiles", profiles, 10):
+            if not memcache.add("profiles", profiles):
                 logging.error("Memcache set failed.")
             return profiles
 
@@ -30,7 +30,7 @@ class  DocPostM():
             return docposts
         else:
             docposts = self.render_docpost()
-            if not memcache.add("docposts", docposts, 10):
+            if not memcache.add("docposts", docposts):
                 logging.error("Memcache set failed.")
             return docposts
 

@@ -17,5 +17,8 @@ handlers:
 - url: /.*
   script: urlControl.py
 
-  
+- url: /favicon.ico
+  static_files: cm/static/image/favicon.ico
+  upload: cm/static/image/favicon.ico
+  mime_type: image/x-icon
   

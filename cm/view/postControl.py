@@ -36,6 +36,8 @@ class DocPostReceive(CcdjhMarx):
     modelDocPost.put()
     
     v= self.request.get("tags")
+    if v=="":
+      v="chrysanthemum"
     vv=re.split(',',v)
     for vvv in vv :
       ccc=vvv

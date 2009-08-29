@@ -6,6 +6,7 @@
 <link href="/static/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/cm{% block theme %}purple{% endblock %}.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/admin.css" rel="stylesheet" type="text/css" />
+<link href="/static/image/favicon.ico" rel="shortcut icon" type="image/x-icon" />  
 </head>
 
 <body>
@@ -22,5 +23,14 @@
     {% block admin %}{% endblock %}
 </div>
 </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10416115-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>

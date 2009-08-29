@@ -14,8 +14,8 @@
         <div class="title"><h1><a href="/doc/{{ mdp.idc }}/{{ mdp.title }}/">{{ mdp.title }}</a></h1></div>
         <span class="date">{{ mdp.date|date:"m-j-Y" }}</span>
         <span class="author">{% if mdp.author %}  Posted by <a href="#">{{ mdp.author.nickname }}</a>{% else %}  Posted by  <a href="#">An</a>{% endif %}</span> 
-        <div class="content">{{ mdp.content|linebreaks }}</div>{% for t in mdp.tags %}
-        <div class="listtag"><a href="/tag/{{ t }}/">{{  t  }}</a></div>{% endfor %}{% endfor %}
+        <div class="content">{{ mdp.content|linebreaks }}</div>
+        <div class="listtag">{% for t in mdp.tags %}<a href="/tag/{{ t }}/">{{  t  }}</a>|{% endfor %}</div>{% endfor %}
     </div>
 {% endblock %}
 

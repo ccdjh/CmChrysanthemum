@@ -1,0 +1,133 @@
+body {
+background-color: #FFF;
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+font-size: 12px;
+background-color:rgb(233,84,107);
+}
+#main{
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
+}
+div#header,div#pheader,div#theader{
+    width:200px;
+    background-color:rgb(245,178,178);
+    height:800px;
+    position:  fixed;
+    padding:10px;
+    border-right:solid;
+    border-color:rgb(240,238,224);
+    border-width:4px;
+}
+div#mainb,div#pdoc,div#tdoc{
+    float:right;
+    width:550px;
+    background-color:rgb(245,178,178);
+    padding:10px;
+    border-right:solid;
+    border-color:rgb(247,200,207);
+    border-width:4px;
+
+    min-height:750px;
+}
+div#sidebar,div#psidebar,div#tsidebar {
+    float:right;
+    width:230px;
+    
+}
+div#docpage {
+    position:  fixed;
+    z-index: 2;
+    top:300px;
+}
+div#footer,div#pfooter,div#tfooter {
+    position:  fixed;
+    z-index: 3;
+    top:450px;
+    width:200px;
+}
+h1#blog_title{
+    font-size:14px;
+    color:#000;
+}
+#blog_description{
+    font-size:12px;
+}
+.title{
+    font-size:10px;
+}
+#profile #profileabout{
+    width:200px;
+    position: fixed;
+    left:10px;
+    top:350px;
+}
+#commentcount{
+    display:none;
+}
+.tagcount{
+    display:none;
+}
+ul{
+    list-style-type:none;
+}
+h2.r {
+text-align: center;
+font-size: 18px;
+font-weight: bold;
+font-family: "Lucida Grande", Verdana;
+margin: 0px 0px 5px 0px;
+background-color:rgb(233,84,107);
+color:rgb(240,238,224);
+}
+li{
+    height:20px;
+    border-bottom:solid 1px;
+    padding:8px;
+    margin-left:-20px;
+    text-align: center;
+}
+a:link {
+color: #000;
+text-decoration: none;
+}
+
+a:visited {
+color: #000;
+text-decoration: none;
+}
+
+a:hover {
+color: #000;
+border: none;
+text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
+background-color: #F90;
+color: #FFF;
+}
+#sidebar a:link,#psidebar a:link,#tsidebar a:link{
+color: rgb(240,238,224);
+text-decoration: none;
+}
+
+#sidebar a:visited,#psidebar a:visited,#tsidebar a:visited {
+color: rgb(240,238,224);
+text-decoration: none;
+}
+
+#sidebar a:hover,#psidebar a:hover,#tsidebar a:hover {
+color: #000;
+border: none;
+text-decoration: none;
+}
+
+#sidebar a:active,#psidebar a:active,#tsidebar a:active {
+text-decoration: none;
+background-color: #F90;
+color: #FFF;
+}

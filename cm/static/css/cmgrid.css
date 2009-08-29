@@ -87,7 +87,7 @@ h1#blog_title a:hover {
 }
 #profileimg{
     position: absolute;
-    top: 110px;
+    top: 70px;
     display: block;
     width: 200px;
     text-align:right;
@@ -95,4 +95,7 @@ h1#blog_title a:hover {
 #profileimg img{
 	margin: 10px 5px 0px 0px;
 	border: 3px solid #f5f5dc;
+}
+#commentcount{
+    display:none;
 }

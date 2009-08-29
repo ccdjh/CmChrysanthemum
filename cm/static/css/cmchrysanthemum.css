@@ -1,0 +1,99 @@
+body {
+background-color: rgb(79,186,160);
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+font-size: 12px;
+}
+#main{
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
+    background-color: #fff;
+    border-left: solid;
+    border-right:solid;
+    border-color:#ccc;
+    border-width:1px;
+}
+div#header,div#pheader,div#theader{
+background-color: rgb(243,152,57);
+padding: 10px;
+border-bottom: 2px solid #F90;
+height: 50px;
+clear: both;
+margin-bottom: 20px;
+}
+div#mainb,div#pdoc,div#tdoc{
+margin: 0px 72px 0px 20px;
+text-align: left;
+padding: 0px 0px 20px 0px;
+width: 580px;
+float:left;
+}
+div#footer,div#pfooter,div#tfooter {
+border-top: 1px dotted #CCC;
+text-align: center;
+padding: 10px;
+font-size: 12px;
+color: #333;
+clear: both;
+}
+div#sidebar,div#psidebar,div#tsidebar {
+float:right;
+margin-right: 20px;
+margin-bottom: 20px;
+width: 200px;
+padding: 10px;
+text-align: left;
+
+}
+
+#blog_description{
+    background-color: rgb(241,232,143);
+    margin-left: -10px;
+    margin-right: -10px;
+    padding:2px;
+    font-size:10px;
+    color:#bbb;
+}
+h1#blog_title{  
+}
+#commentcount{
+    display:none;
+}
+div#docpage {
+clear: both;
+}
+a:link {
+color: #F60;
+text-decoration: none;
+}
+h2.r {
+color: #bbb;
+font-size: 14px;
+font-weight: bold;
+font-family: "Lucida Grande", Verdana;
+margin: 0px 0px 5px 0px;
+}
+a:visited {
+color: #F60;
+text-decoration: none;
+}
+
+a:hover {
+color: #000;
+border: none;
+text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
+background-color: #F90;
+color: #FFF;
+}
+.title{
+    font-size:10px;
+}
+ul{
+    list-style-type:none;
+}
