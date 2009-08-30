@@ -26,7 +26,7 @@
 {% block sidebar %}
     <div id="sidebar">
         <div id="profile"><h2 class="r">Profile</h2>
-            <ul id="taglist">{% for p in pro %}
+            <ul id="taglistb">{% for p in pro %}
                 <div id="profilename">{{ p.name }}</div>
                 <div id="profileimg"><img src='/image/{{ p.idc }}/'></img></div>
                 <div id="profileabout">{{ p.about }}</div>{% endfor %}
@@ -47,7 +47,7 @@
         </div> {% endfor %}
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">
-                <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
+                <li class="login"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
                 <li><a href="/admin/">admin</a></li>
             </ul>
         </div>
