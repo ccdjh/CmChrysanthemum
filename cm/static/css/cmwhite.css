@@ -29,7 +29,9 @@ text-align: center;
 color: #99A;
 letter-spacing: -1px;
 }
-
+.commentcounttwo{
+    display:none;
+}
 h2#blog_descriptionb {
 display: block;
 padding-top: 5px;

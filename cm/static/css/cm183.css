@@ -1,0 +1,116 @@
+body {
+background-color: #E4EDF6;
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+font-size: 12px;
+}
+div#header,div#pheader,div#theader{
+background-color: #004492;
+padding: 10px;
+border-bottom: 2px solid #004492;
+height: 50px;
+clear: both;
+margin-bottom: 20px;
+}
+div#sidebar,div#psidebar,div#tsidebar {
+position: absolute;
+margin-right: 2px;
+margin-bottom: 20px;
+width: 200px;
+padding: 10px;
+text-align: left;
+background-color: #D0E6F7;
+}
+div#mainb,div#pdoc,div#tdoc{
+margin: 0px 72px 0px 250px;
+text-align: left;
+padding: 0px 0px 20px 0px;
+width: 550px;
+float:left;
+}
+div#footer,div#pfooter,div#tfooter {
+border-top: 1px dotted #CCC;
+text-align: center;
+padding: 10px;
+font-size: 12px;
+color: #333;
+clear: both;
+background-color: #F5F8FC;
+}
+div#docpage {
+clear: both;
+}
+h1#blog_title {
+color: #FFF;
+margin: 5px 0px 5px 0px;
+font-size: 16px;
+}
+h2#blog_description {
+color: #4886CE;
+margin: 5px 0px 5px 0px;
+font-size: 12px;
+font-weight: normal;
+}
+div#commentcount{
+    display:none;
+}
+h1{
+    font-size:16px;
+}
+h2.r {
+color: #435B75;
+font-size: 14px;
+font-weight: bold;
+font-family: "Lucida Grande", Verdana;
+margin: 0px 0px 5px 0px;
+}
+ul {list-style-type: none;}
+
+
+a.w:link {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:visited {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:hover {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:active {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+a:link {
+color: #1886FF;
+border: none;
+text-decoration: none;
+}
+
+a:visited {
+color: #1886FF;
+border: none;
+text-decoration: none;
+}
+
+a:hover {
+color: #1886FF;
+border: none;
+text-decoration: none;
+}
+
+a:active {
+color: #1886FF;
+border: none;
+text-decoration: none;
+}

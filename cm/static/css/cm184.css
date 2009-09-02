@@ -1,0 +1,82 @@
+body {
+background-color: #61861E;
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+font-size: 12px;
+}
+div#mainb,div#pdoc,div#tdoc{
+margin-left: auto;
+margin-right: auto;
+padding:10px;
+text-align: left;
+width: 550px;
+background-color: #91AB62;
+}
+div#footer,div#pfooter,div#tfooter {
+border-top: 1px dotted #CCC;
+text-align: center;
+padding: 10px;
+font-size: 12px;
+color: #333;
+clear: both;
+background-color: #7A9942;
+}
+div#docpage {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:80px;
+    width:600px;
+}
+#subscribe{
+    display: block;
+}
+div#sidebar,div#psidebar,div#tsidebar {
+    margin-left: auto;
+    margin-right: auto;
+    width:600px;
+}
+#tag,#lixxx,#all,#profile,#rss{
+    display:none;
+}
+#rss{
+
+}
+
+
+h2.r {
+display:none;
+color: #fff;
+font-size: 14px;
+font-weight: bold;
+font-family: "Lucida Grande", Verdana;
+margin: 0px 0px 5px 0px;
+}
+ul {list-style-type: none;}
+div#commentcount{
+    display:none;
+}
+a:link {
+color: #fFF;
+border: none;
+text-decoration: none;
+}
+
+a:visited {
+color: #fFF;
+border: none;
+text-decoration: none;
+}
+
+a:hover {
+color: #fFF;
+border: none;
+text-decoration: none;
+}
+
+a:active {
+color: #fFF;
+border: none;
+text-decoration: none;
+}
