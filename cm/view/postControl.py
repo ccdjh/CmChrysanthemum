@@ -191,9 +191,9 @@ class ThemeReceive(CcdjhMarx):
         o.author="livid"
         o.put()
       elif g=="mour":
-        o.link=db.Link("http://www.v2ex.com/")
+        o.link=db.Link("http://blog.kf25.cn/romoo")
         o.name="mour"
-        o.author="livid"
+        o.author="Romoo"
         o.put()
       elif g=="light":
         o.link=db.Link("http://www.v2ex.com/")
@@ -201,14 +201,39 @@ class ThemeReceive(CcdjhMarx):
         o.author="livid"
         o.put()
       elif g=="grid":
-        o.link=db.Link("http://www.v2ex.com/")
+        o.link=db.Link("http://www.singrun.com/")
         o.name="grid"
-        o.author="livid"
+        o.author="singrun"
         o.put()
       elif g=="cloud":
-        o.link=db.Link("http://www.v2ex.com/")
+        o.link=db.Link("http://www.saicn.com/")
         o.name="cloud"
+        o.author="sai"
+        o.put()
+      elif g=="flamingo":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="flamingo"
         o.author="livid"
+        o.put()
+      elif g=="tropical":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="tropical"
+        o.author="ccdjh"
+        o.put()
+      elif g=="ivory":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="ivory"
+        o.author="ccdjh"
+        o.put()
+      elif g=="cerulean":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="cerulean"
+        o.author="ccdjh"
+        o.put()
+      elif g=="cobalt":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="cobalt"
+        o.author="ccdjh"
         o.put()
       else:
         i=int(g)
