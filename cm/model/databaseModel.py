@@ -18,6 +18,7 @@ class DocComment(db.Model):
       author = db.EmailProperty()
       postid = db.IntegerProperty()
       image = db.StringProperty()
+      googleauthor = db.UserProperty()
 
 class DocTag(db.Model):
     tag = db.StringProperty(multiline=False)

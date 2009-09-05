@@ -68,6 +68,7 @@ class DocCommentReceive(CcdjhMarx):
       com= users.get_current_user()
       comm=com.email()
       comment.author = db.Email(comm)
+      comment.googleauthor= users.get_current_user()
     #myurl=self.request.host_url
     default = self.request.host_url+"/static/image/gravatars.jpg"
     size=40

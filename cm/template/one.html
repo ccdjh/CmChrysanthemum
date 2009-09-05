@@ -72,11 +72,11 @@
 {% endif %}
 {% for mdo in modelDocOne %}
 {% for mdoo in mdo.post_comment %}
-        <div>
+        <div class="googlecomment">
             <img src='{{ mdoo.image }}' alt="guest" />
-            <span>{{ mdoo.comment|escape }}</span><br>
+            <span>{{ mdoo.comment|escape }}</span><br><br>
             <span>{{ mdoo.date|date:"m-j-Y" }}</span>
-            <span>{{ mdoo.author|cut:"@"  }}</span>
+            <span class="vvvvv">{{ mdoo.googleauthor  }}</span><hr>
         </div>
 {% endfor %}
 {% endfor %}
