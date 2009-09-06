@@ -30,6 +30,7 @@ from cm.view.postControl import DocThemeReceive
 from cm.view.getControl import ThemeImageReceive
 from cm.view.postControl import ThemeReceive
 
+from cm.view.htmlConrtol import ErrorAll
 from cm.view.htmlConrtol import Feed
 
 application = webapp.WSGIApplication([
@@ -59,7 +60,7 @@ application = webapp.WSGIApplication([
                                         (r'/comment/$', DocCommentReceive),
                                         (r'/tag/(?P<tagc>[^/]+)/', DocTagReceive),
                                         (r'/tag/(?P<tagc>[^/]+)/(?P<page>[0-9]+)/', DocTagReceive),
-                                        (r'/error/', Error),
+                                        (r'/error/', ErrorAll),
                                         ('.*',Error)
 ], debug=True)
 

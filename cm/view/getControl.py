@@ -46,7 +46,7 @@ class DocOneReceive(CcdjhMarx):
     idcc=int(idc)
     modelDocOne=DocPost.all().filter('idc = ', idcc)
     modelDocOne.get()
-    if modelDocOne is None:
+    if modelDocOne.count()==0:
       self.redirect("/error/")
     u=users.get_current_user()
     listNeed=self.listNeedCM()
@@ -64,6 +64,8 @@ class DocTagReceive(CcdjhMarx):
     tagText=urllib.unquote(tagc).decode("utf-8")
     limit=2
     m=DocPost.all().filter('tags =', tagText)
+    if m.count()==0:
+      self.redirect("/error/")
     count=m.count()
     if (page-1)*limit>count:
       self.redirect("/error/")

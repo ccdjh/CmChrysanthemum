@@ -64,4 +64,4 @@ class CcdjhMarx(webapp.RequestHandler):
 class Error(webapp.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        self.response.out.write('Hello, webapp World!404')
+        self.response.out.write('Hello, Chrysanthemum')

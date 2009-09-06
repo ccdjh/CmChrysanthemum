@@ -17,7 +17,8 @@ from cm.view.memcacheControl import DocPostM
 class AdminPost(CcdjhMarx):
   def get(self):
     listNeed=self.listNeedCM()
-    doc=DocPost.all().fetch(10)
+    docc=DocPost.all().order('-date')
+    doc = docc.fetch(limit=10, offset=0)
     template_values = {'listNeed': listNeed,'doc': doc,}
     self.htmlRenderCM('../template/admin.html',template_values)
     
@@ -68,4 +69,10 @@ class DocTheme(CcdjhMarx):
   def get(self):
     y=Theme.all()
     template_values = {'y': y,}
-    self.htmlRenderCM('../template/theme.html',template_values)    
+    self.htmlRenderCM('../template/theme.html',template_values)
+    
+class ErrorAll(CcdjhMarx):
+  def get(self):
+    listNeed=self.listNeedCM()
+    template_values = {'listNeed': listNeed,}
+    self.htmlRenderCM('../template/error.html',template_values) 
