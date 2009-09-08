@@ -3,7 +3,7 @@
 {% block admin %}
 <div id="admin">
 
-<form action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
+<form name="aboutform" action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
     <input type="text" name="title" value="{% for ab in about %}{{ ab.title }}{% endfor %}" class="inputtitle">title
     <div><input type="text" name="description" value="{% for ab in about %}{{ ab.description }}{% endfor %}" class="inputtitle">description</div>
     <input type="text" name="name" value="{% for ab in about %}{{ ab.name }}{% endfor %}" class="inputtitle">name

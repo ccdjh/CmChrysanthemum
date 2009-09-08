@@ -111,12 +111,14 @@ class DocListReceiveTwo(CcdjhMarx):
 class AboutReceive(CcdjhMarx):
   def post(self):
     modelProfile=Profile.all().get()
+    #img=self.request.get("img")
+    #if img =="":
+     #   self.redirect("/error/")
     if modelProfile is not None:
       modelProfile.name = self.request.get("name")
       modelProfile.about = self.request.get("about")
       modelProfile.title = self.request.get("title")
       modelProfile.description = self.request.get("description")
-      
       #imgb =  images.resize(self.request.get("img"),46,46)
       modelProfile.avatar = db.Blob(self.request.get("img"))
       modelProfile.put()
