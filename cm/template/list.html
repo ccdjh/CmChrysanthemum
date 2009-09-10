@@ -2,16 +2,16 @@
 {% block title %}The current time{% endblock %}
 {% block admin %}
 <div id="admin">
-<form action="/admin/doclistreceive/" method="post">
-    <input type="text" name="linkname">name
+<form id="listFrom" action="/admin/doclistreceive/" method="post">
+    <input type="text" name="linkname" class="required">name
     <input type="submit" value="Publish One">
 </form>
 {% for li in link %}
 <div>
     <span>{{ li.name }}</span><span class="vvv"><a class="vv" href="/admin/deldoclist/{{ li.idc }}/">Del</a></span>
-    <form action="/admin/doclistreceivetwo/" method="post">
-        <input type="text" name="linkname">name
-        <input type="text" name="link">Link
+    <form id="listFromTwo" action="/admin/doclistreceivetwo/" method="post">
+        <input type="text" name="linkname" class="required">name
+        <input type="text" name="link" class="url">Link
         <input type="hidden" name="commentIdc" value="{{ li.idc }}"/>
         <input type="submit" value="Publish Two">
     </form>

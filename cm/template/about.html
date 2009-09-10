@@ -3,12 +3,12 @@
 {% block admin %}
 <div id="admin">
 
-<form name="aboutform" action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
-    <input type="text" name="title" value="{% for ab in about %}{{ ab.title }}{% endfor %}" class="inputtitle">title
-    <div><input type="text" name="description" value="{% for ab in about %}{{ ab.description }}{% endfor %}" class="inputtitle">description</div>
-    <input type="text" name="name" value="{% for ab in about %}{{ ab.name }}{% endfor %}" class="inputtitle">name
-    <div><input type="file" name="img"/>image</div>
-    <div><textarea name="about" rows="3" cols="60">{% for ab in about %}{{ ab.about }}{% endfor %}</textarea>about</div>
+<form id="aboutForm" name="aboutform" action="/admin/aboutreceive/" enctype="multipart/form-data" method="post">
+    <input type="text" name="title" class="required" value="{% for ab in about %}{{ ab.title }}{% endfor %}" class="inputtitle">title
+    <div><input type="text" name="description" class="required" value="{% for ab in about %}{{ ab.description }}{% endfor %}" class="inputtitle">description</div>
+    <input type="text" name="name" class="required" value="{% for ab in about %}{{ ab.name }}{% endfor %}" class="inputtitle">name
+    <div><input type="file" name="img" class="required" />image</div>
+    <div><textarea name="about" rows="3" cols="60" class="required">{% for ab in about %}{{ ab.about }}{% endfor %}</textarea>about</div>
     <input type="submit" value="Publish You">
 </form>
 

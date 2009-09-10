@@ -2,10 +2,10 @@
 {% block title %}Admin{% endblock %}
 {% block admin %}
 <div id="admin">
-<form action="/admin/docreceive/" method="post">
-  <input type="text" name="title"  class="inputtitle">Title 
+<form id="adminForm" action="/admin/docreceive/" method="post">
+  <input type="text" name="title" class="required"  class="inputtitle">Title 
   <div><textarea name="content" rows="18" cols="70"></textarea></div>
-  <input type="text" name="tags">Tags
+  <input type="text" name="tags">Tags (use “ , ”   Examples:"ccdjh,marx,good,day")
   <input type="submit" value="Publish">
 </form>
 <h3 class="vvvvvv"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></h3>

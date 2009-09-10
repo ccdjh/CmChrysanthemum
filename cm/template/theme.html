@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block title %}The current time{% endblock %}
 {% block admin %}
+
 <div id="admin">
 <div id="themeone">
-    <form action="/admin/docthemereceive/" enctype="multipart/form-data" method="post">
-        <input type="text" name="name">name<br/>
-        <input type="text" name="link">Link<br/>
-        <input type="text" name="author">author<br/>
-        <input type="file" name="img"/>avatar<br/>
+    <form  id="commentForm"  action="/admin/docthemereceive/" enctype="multipart/form-data" method="post">
+        <input type="text" name="name" class="required">name<br/>
+        <input type="text" name="link" class="url"  >Link<br/>
+        <input type="text" name="author" class="required">author<br/>
+        <input type="file" name="img" class="required"/>avatar<br/>
         <input type="submit" value="add theme">
     </form>
 <div>
