@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}The current time{% endblock %}
+{% block title %}Admin{% endblock %}
 {% block admin %}
 <div id="admin">
 <form id="listFrom" action="/admin/doclistreceive/" method="post">
@@ -7,11 +7,11 @@
     <input type="submit" value="Publish One">
 </form>
 {% for li in link %}
-<div>
+<div id="vv{{ li.name }}">
     <span>{{ li.name }}</span><span class="vvv"><a class="vv" href="/admin/deldoclist/{{ li.idc }}/">Del</a></span>
-    <form id="listFromTwo" action="/admin/doclistreceivetwo/" method="post">
-        <input type="text" name="linkname" class="required">name
-        <input type="text" name="link" class="url">Link
+    <form class="listFromTwo" action="/admin/doclistreceivetwo/" method="post">
+        <input type="text" name="linkname" class="required" >name
+        <input type="text" name="link" class="required url">Link
         <input type="hidden" name="commentIdc" value="{{ li.idc }}"/>
         <input type="submit" value="Publish Two">
     </form>
