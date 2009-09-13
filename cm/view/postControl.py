@@ -100,8 +100,14 @@ class DocListReceiveTwo(CcdjhMarx):
     cc=int(c)
     q=ListYou.get_by_id(cc)
     ListYou = ListYouTwo(contact=q)
-    ListYou.comment = self.request.get("linkname")
-    ListYou.link = db.Link(self.request.get("link"))
+    n=self.request.get("linkname")
+    if n=="":
+      n="ccdjh"
+    l=self.request.get("link")
+    if l=="":
+      l="http://www.ccdjh.cn"
+    ListYou.comment = n
+    ListYou.link = db.Link(l)
     ListYou.put()
     m=ListYou.key().id()
     ListYou.idc = m
