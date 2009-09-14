@@ -1,0 +1,138 @@
+body {
+background-color: #FFF;
+padding: 0px;
+margin: 0px;
+font-family: "Lucida Grande", Verdana, "Lucida Sans", sans, Hei;
+font-size: 12px;
+}
+div#commentcount,div#docpage,div#tag,div#all,.listtag,#subscribe,.r{
+    display:none;
+}
+#main{
+background-image:url("/static/feature/wrapper.png") ;
+background-repeat: repeat-x;
+padding-top: 10px;
+margin-top:-70px;
+}
+#center{
+margin-left:auto;
+margin-right:auto;
+width:800px;
+}
+div#mainb,div#pdoc,div#tdoc{
+background-image:url("/static/feature/content-product.png") ;
+background-repeat: repeat-x;
+width: 480px;
+float:right;
+padding-top:50px;
+}
+.title,.author,.content{
+    padding-left:30px;
+    padding-right:15px;
+}
+div#footer,div#pfooter,div#tfooter {
+text-align:left;
+padding-bottom:50px;
+color: #fff;
+}
+.title{
+background-color:#eee;
+font-size:10px;
+}
+h1#blog_title {
+position: relative;
+top:340px;
+background-image:url("/static/feature/calltoaction.png") ;
+background-repeat:no-repeat;
+height:40px;
+
+}
+h2#blog_description {
+color: #FFF;
+margin: 5px 0px 5px 0px;
+display: inline;
+background-image:url("/static/feature/calltoaction-info.png") ;
+background-repeat:no-repeat;
+background-position:top right;
+}
+#lixxFeature{
+position: absolute;
+top:360px;
+}
+#lixxDownload{
+position: absolute;
+top:100px;
+margin-left:-40px;
+}
+
+#lixxDownload li{
+background-image:url("/static/feature/calltoaction-info.png") ;
+background-repeat:no-repeat;
+width:120px;
+height:40px;
+list-style-type:none;
+float:left;
+font-size:18px;
+
+}
+#profile{
+margin-left:-40px;
+}
+#profileimg{
+position:relative;
+top:-140px;
+right:-140px;
+}
+.imgleft{
+float:left;
+}
+.imgright{
+float:right;
+}
+a:link {
+color: #0C8ECF;
+border-bottom: 1px dotted #34A;
+text-decoration: none;
+}
+
+a:visited {
+color: #0C8ECF;
+border-bottom: 1px dotted #349;
+text-decoration: none;
+}
+
+a:hover {
+color: #F60;
+border: none;
+text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
+background-color: #F90;
+color: #FFF;
+}
+a.w:link {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:visited {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:hover {
+color: #FFF;
+border: none;
+text-decoration: none;
+}
+
+a.w:active {
+background-color: #f30;
+color: #FFF;
+border: none;
+text-decoration: none;
+}
