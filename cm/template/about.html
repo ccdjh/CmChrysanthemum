@@ -8,7 +8,7 @@
     <div><input type="text" name="description" class="required" value="{% for ab in about %}{{ ab.description }}{% endfor %}" class="inputtitle">description</div>
     <input type="text" name="name" class="required" value="{% for ab in about %}{{ ab.name }}{% endfor %}" class="inputtitle">name
     <div><input type="file" name="img" class="required" />image</div>
-    <div><textarea name="about" rows="3" cols="60" class="required">{% for ab in about %}{{ ab.about }}{% endfor %}</textarea>about</div>
+    <div><textarea name="about" rows="3" cols="50" class="required">{% for ab in about %}{{ ab.about }}{% endfor %}</textarea>about</div>
     <input type="submit" value="Publish You">
 </form>
 

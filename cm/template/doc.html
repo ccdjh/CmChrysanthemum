@@ -37,14 +37,14 @@
                 <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
             </ul>
         </div>
-        {% for li in link %}
-        <div id=lixxx>
+        
+        <div id=lixxx>{% for li in link %}
         <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
             <ul id="linklist">{% for lit in li.list_you %}
                 <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
             </ul>
-        </div>
-        </div> {% endfor %}
+        </div>{% endfor %}
+        </div> 
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">
                 <li class="login"><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>

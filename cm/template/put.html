@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Admin Put{% endblock %}
 {% block content %}
+<div id="admin">
     {% for d in y %}
     <form action="/admin/putdocreceive/" method="post">
         <input type="text" name="title"  class="inputtitle" value="{{ d.title }}">Title<br>
-        <textarea name="content" rows="18" cols="70">{{ d.content }}</textarea><br>
+        <textarea name="content" rows="18" cols="50">{{ d.content }}</textarea><br>
         <input type="hidden" name="commentIdc" value="{{ d.idc }}"/>{{ d.idc }}<br>
         <input type="submit" value="Put Doc">
     </form>
       
-      <h3 class="vvvvvv"><a href="/">back main</a></h3>
-      <h3 class="vvvvvv"><a href="/admin/doclist/">Doc List</a></h3>
-      <h3 class="vvvvvv"><a href="/admin/about/">About Me</a></h3>
-      <h3 class="vvvvvv"><a href="/admin/">Admin</a></h3>
+      <h3 class="vvvvvv"><a href="/">Back main</a></h3>
+      <h3 class="vvvvvv"><a href="/admin/doclist/">Back List</a></h3>
     {% endfor %}
+</div>    
 {% endblock %}

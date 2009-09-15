@@ -22,14 +22,14 @@
                 <li><a href="/tag/{{ tag.tag }}/">{{ tag.tag }}<span class="tagcount">({{ tag.tagcount }})</span></a></li>{% endfor %}
             </ul>
         </div>
-        {% for li in link %}
-        <div id=lixxx>
+        
+        <div id=lixxx>{% for li in link %}
         <div id="lixx{{ li.name }}"><h2 class="r">{{ li.name }}</h2>
             <ul id="linklist">{% for lit in li.list_you %}
                 <li><a href="{{ lit.link }}">{{ lit.comment }}</a></li>{% endfor %}
             </ul>
-         </div>   
-        </div> {% endfor %}
+         </div>{% endfor %}   
+        </div> 
         <div id="all"><h2 class="r">All</h2>
             <ul id="textall">
                 <li><a href="{{ listNeed.url }}">{{ listNeed.urlLinktext }}</a></li>
@@ -59,7 +59,7 @@
 {% if u %}
         <div>
             <form id="oneForm" action="/comment/" method="post">
-                <textarea name="content" class="required" rows="3" cols="60"></textarea>
+                <textarea name="content" class="required" rows="3" cols="30"></textarea>
                 <input type="hidden" name="commentIdc"  value="{% for mdo in modelDocOne %}{{ mdo.idc }}{% endfor %}"/><br>
                 <input type="submit" value="Comment">
             </form>
