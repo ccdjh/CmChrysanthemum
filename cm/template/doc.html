@@ -69,8 +69,13 @@
 {% endblock %}
 
 {% block footer %}
+{% if theme %}
 {% for t in theme %}
-    <div id="footer"> {{ t.name }} theme designed by <a href="{{ t.link }}">{{ t.author }}</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown is <a href="#"><strong>Ccdjh.Marx</strong></a>.
+    <div id="footer"> {{ t.name }} theme designed by <a href="{{ t.link }}">{{ t.author }}</a>,  powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown -> <a href="#"><strong>Ccdjh.Marx</strong></a>.
     </div>
 {% endfor %}
+{% else %}
+    <div id="footer"> powered by <a href="http://engine.google.com"><strong>Google App Engine</strong></a>.Clown-> <a href="#"><strong>Ccdjh.Marx</strong></a>.
+    </div>
+{% endif %}
 {% endblock %}

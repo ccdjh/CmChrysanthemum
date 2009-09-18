@@ -2,13 +2,15 @@
 <rss version="2.0"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
-{% for f in feed %}  
+ 
 	<channel> {% for p in pro %}
 		<title>{{ p.title }}</title> 
 		<link>{{ myurl }}</link> 
 		<description>{{ p.description }} </description> 
 		<category>{{ p.about }}</category> 
 		<language>en</language> {% endfor %}
+
+{% for f in feed %}
 		<item> 
 			<title>{{ f.title }}</title> 
 			<link>{{ myurl }}/{{ f.idc }}/{{ f.title }}/</link>
@@ -19,7 +21,7 @@
 			<description>{{ f.content|linebreaks }}</description> 
 			<pubDate>{{ f.date|date:"m-j-Y" }}</pubDate> 
 		</item> 
+{% endfor %}
 	</channel>
-{% endfor %}      
 </rss>
   

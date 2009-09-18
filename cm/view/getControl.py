@@ -98,7 +98,10 @@ class DelListReceive(CcdjhMarx):
   def get(self,idc):    
     g =int(idc)
     y=ListYou.get_by_id(g)
+    yy=y.idc
+    t=ListYouTwo.all().filter('lidc =', yy)
     db.delete(y)
+    db.delete(t)
     self.redirect(self.request.referer)
     
 class DelDocReceive(CcdjhMarx):
@@ -113,7 +116,10 @@ class DelDocReceive(CcdjhMarx):
         ttt.put()
       else:
         db.delete(ttt)
+    yy=y.idc
+    t=DocComment.all().filter('postid =', yy)
     db.delete(y)
+    db.delete(t)
     self.redirect(self.request.referer)
     
 class DelCommentReceive(CcdjhMarx):

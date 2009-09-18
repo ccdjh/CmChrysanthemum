@@ -43,6 +43,7 @@ class ListYouTwo(db.Model):
       comment = db.StringProperty(multiline=False)
       link = db.LinkProperty()
       idc = db.IntegerProperty()
+      lidc = db.IntegerProperty()
       
 class Theme(db.Model):
     link = db.LinkProperty()

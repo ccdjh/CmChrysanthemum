@@ -3,6 +3,7 @@ import re
 import os
 import codecs
 
+
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
@@ -94,6 +95,7 @@ class DocListReceive(CcdjhMarx):
     
 class DocListReceiveTwo(CcdjhMarx):
   def post(self):
+    
     from cm.model.databaseModel import ListYou
     from cm.model.databaseModel import ListYouTwo
     c = self.request.get("commentIdc")
@@ -106,8 +108,16 @@ class DocListReceiveTwo(CcdjhMarx):
     l=self.request.get("link")
     if l=="":
       l="http://www.ccdjh.cn"
+    else:
+        from google.appengine.ext.db import BadValueError
+        try:
+            l = db.Link(l)
+        except BadValueError:
+            l="http://www.ccdjh.com"
+            
     ListYou.comment = n
     ListYou.link = db.Link(l)
+    ListYou.lidc=cc
     ListYou.put()
     m=ListYou.key().id()
     ListYou.idc = m
