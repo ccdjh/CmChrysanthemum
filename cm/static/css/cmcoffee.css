@@ -1,4 +1,4 @@
-/*  http://www.wpdesigner.com/  */ 
+
 body {
 background-color: #2b201a;
 padding: 0px;
@@ -65,6 +65,10 @@ clear: both;
 }
 div#commentcount{
     display:none;
+}
+ul#add{
+    position:relative;
+    left:-40px;
 }
 a:link {
 color: #fff;

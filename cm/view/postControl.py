@@ -254,6 +254,16 @@ class ThemeReceive(CcdjhMarx):
         o.name="cobalt"
         o.author="ccdjh"
         o.put()
+      elif g=="coffee":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="coffee"
+        o.author="ccdjh"
+        o.put()
+      elif g=="redstar":
+        o.link=db.Link("http://www.ccdjh.com/")
+        o.name="redstar"
+        o.author="ccdjh"
+        o.put()
       else:
         i=int(g)
         c=Theme.get_by_id(i)
@@ -331,6 +341,16 @@ class ThemeReceive(CcdjhMarx):
       elif g=="cobalt":
         m.link=db.Link("http://www.ccdjh.com/")
         m.name="cobalt"
+        m.author="ccdjh"
+        m.put()
+      elif g=="coffee":
+        m.link=db.Link("http://www.ccdjh.com/")
+        m.name="coffee"
+        m.author="ccdjh"
+        m.put()
+      elif g=="redstar":
+        m.link=db.Link("http://www.ccdjh.com/")
+        m.name="redstar"
         m.author="ccdjh"
         m.put()
       else:
